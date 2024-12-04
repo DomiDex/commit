@@ -1,7 +1,60 @@
+import Section from '../ui/section/Section';
+import Container from '../ui/container/Container';
+import logo from '../../assets/svg/commit-logo.svg';
+
 export default function Footer() {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <Section as='footer'>
+      <Container>
+        <div className='flex flex-col items-center justify-center space-y-12'>
+          <div className='flex flex-col items-center justify-center space-y-6'>
+            <img className='w-52 h-auto' src={logo} alt='Logo' />
+            <div className='flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-12'>
+              <a
+                className='text-lg font-semibold hover:text-amber-500 transition-colors duration-300'
+                href='/about'
+              >
+                About
+              </a>
+              <a
+                className='text-lg font-semibold hover:text-amber-500 transition-colors duration-300'
+                href='/projects'
+              >
+                Projects
+              </a>
+              <a
+                className='text-lg font-semibold hover:text-amber-500 transition-colors duration-300'
+                href='/contact'
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+          <div className='flex w-full flex-col items-center justify-center space-y-2'>
+            <div className='w-full h-[1px] bg-slate-200'></div>
+            <div className='w-full flex md:flex-row flex-col items-center justify-between space-y-2'>
+              <p className='text-sm text-slate-300'>
+                &copy; {new Date().getFullYear()} reactory UI. All rights
+                reserved.
+              </p>
+              <div className='flex flex-row items-center justify-center space-x-2'>
+                <a
+                  className='text-sm text-slate-300 hover:text-amber-500 transition-colors duration-300'
+                  href='/terms'
+                >
+                  Terms of Service
+                </a>
+                <a
+                  className='text-sm text-slate-300 hover:text-amber-500 transition-colors duration-300'
+                  href='/privacy'
+                >
+                  Privacy Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
   );
 }
