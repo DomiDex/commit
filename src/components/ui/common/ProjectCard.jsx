@@ -24,9 +24,15 @@ export default function ProjectCard({
   return (
     <a
       href='/projects/single-project'
-      className={`w-full md:w-10/12 mx-auto flex flex-col items-center justify-center rounded-2xl overflow-hidden relative group ${className}`}
+      className={`w-full md:w-10/12 mx-auto flex flex-col items-center justify-center rounded-2xl overflow-hidden relative group hover:shadow-xl ${className}`}
     >
-      <img className='w-full h-auto' src={image} alt={imageAlt} />
+      <div className='overflow-hidden'>
+        <img
+          className='w-full h-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
+          src={image}
+          alt={imageAlt}
+        />
+      </div>
       <div className='w-full flex flex-row items-start justify-between space-y-4 bg-slate-700 p-4'>
         <div className='flex flex-col items-start justify-start space-y-4'>
           <p className='text-2xl font-bold'>{title}</p>
@@ -37,11 +43,6 @@ export default function ProjectCard({
           </div>
         </div>
         <p className='text-sm w-5/12'>{description}</p>
-      </div>
-      <div className='absolute top-0 left-0 w-full h-full backdrop-blur-none group-hover:backdrop-blur-sm bg-slate-700/0 group-hover:bg-slate-700/60 transition-all duration-300 flex items-center justify-center'>
-        <p className='text-sm px-4 py-2 bg-amber-500 rounded-full text-slate-800 font-medium group-hover:block hidden transition-all duration-300'>
-          View Project
-        </p>
       </div>
     </a>
   );
