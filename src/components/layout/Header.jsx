@@ -56,6 +56,14 @@ export default function Header() {
                 <li>
                   <a
                     className='text-lg font-semibold hover:text-amber-500 transition-colors duration-300'
+                    href='/projects'
+                  >
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className='text-lg font-semibold hover:text-amber-500 transition-colors duration-300'
                     href='/about'
                   >
                     About

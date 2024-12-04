@@ -3,7 +3,7 @@ import ProjectSingleDescription from '../components/sections/projects/ProjectSin
 import projectOne from '../assets/images/project-one@2x.webp';
 import projectTwo from '../assets/images/project-two@2x.webp';
 import projectThree from '../assets/images/project-three@2x.webp';
-import ProjectCardSection from '../components/sections/projects/ProjectCardSection';
+import ProjectCardSection from '../components/sections/projects/ProjectSingleCardSection';
 
 export default function ProjectSingle() {
   return (
