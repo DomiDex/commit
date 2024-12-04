@@ -2,6 +2,7 @@ import { useState } from 'react';
 import logo from '../../assets/svg/commit-logo.svg';
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
+import MainButton from '../ui/button/MainButton';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,9 @@ export default function Header() {
       >
         <Container className='bg-transparent'>
           <div className='flex items-center justify-between'>
-            <img className='w-28 h-auto' src={logo} alt='Logo' />
+            <a href='/'>
+              <img className='w-28 h-auto' src={logo} alt='Logo' />
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -67,9 +70,7 @@ export default function Header() {
                   </a>
                 </li>
               </ul>
-              <a className='px-4 py-1 bg-amber-500 text-slate-800 font-medium rounded-full hover:bg-amber-400 transition-colors duration-300'>
-                Schedule a call
-              </a>
+              <MainButton href='https://calendly.com/' text='Schedule a call' />
             </nav>
           </div>
         </Container>
@@ -132,12 +133,7 @@ export default function Header() {
             >
               Contact
             </a>
-            <a
-              className='px-4 py-1 bg-amber-500 text-slate-800 font-medium rounded-full hover:bg-amber-400 transition-colors duration-300 text-center'
-              onClick={() => setIsOpen(false)}
-            >
-              Schedule a call
-            </a>
+            <MainButton href='https://calendly.com/' text='Schedule a call' />
           </nav>
         </div>
       </div>

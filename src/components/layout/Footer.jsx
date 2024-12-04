@@ -4,7 +4,7 @@ import logo from '../../assets/svg/commit-logo.svg';
 
 export default function Footer() {
   return (
-    <Section as='footer'>
+    <Section as='footer' padding='px-4 py-8 sm:px-8 md:px-16 md:pt-24 md:pb-4'>
       <Container>
         <div className='flex flex-col items-center justify-center space-y-12'>
           <div className='flex flex-col items-center justify-center space-y-6'>
@@ -31,7 +31,7 @@ export default function Footer() {
             </div>
           </div>
           <div className='flex w-full flex-col items-center justify-center space-y-2'>
-            <div className='w-full h-[1px] bg-slate-200'></div>
+            <div className='w-full h-[1px] bg-slate-600'></div>
             <div className='w-full flex md:flex-row flex-col items-center justify-between space-y-2'>
               <p className='text-sm text-slate-300'>
                 &copy; {new Date().getFullYear()} reactory UI. All rights

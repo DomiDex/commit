@@ -9,7 +9,7 @@ export default function MainHero({
   descriptionClassName = 'text-lg',
 }) {
   return (
-    <Section>
+    <Section padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'>
       <Container>
         <div className='w-full md:w-7/12 flex flex-col space-y-4'>
           <h1 className={titleClassName}>{title}</h1>
