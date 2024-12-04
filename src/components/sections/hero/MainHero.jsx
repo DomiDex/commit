@@ -11,8 +11,10 @@ export default function MainHero({
   return (
     <Section>
       <Container>
-        <h1 className={titleClassName}>{title}</h1>
-        <p className={descriptionClassName}>{description}</p>
+        <div className='w-full md:w-7/12 flex flex-col space-y-4'>
+          <h1 className={titleClassName}>{title}</h1>
+          <p className={descriptionClassName}>{description}</p>
+        </div>
       </Container>
     </Section>
   );
