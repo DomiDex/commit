@@ -8,7 +8,7 @@ export default function ProjectSingleDescription({
     tailored to the client's specifications. Utilizing cutting-edge
     technologies such as React for the front end and Node.js for the
     back end, we ensured a seamless user experience.`,
-  titleClassName = 'text-2xl font-semibold',
+  titleClassName = 'text-2xl md:text-4xl font-bold text-center',
   descriptionClassName = '',
   images = [
     {
