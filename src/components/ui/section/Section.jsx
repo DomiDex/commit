@@ -55,6 +55,6 @@ Section.defaultProps = {
   className: '',
   bgColor: 'bg-slate-800',
   textColor: 'text-slate-50',
-  padding: 'px-4 py-6 sm:px-6 md:px-8 lg:px-12',
+  padding: 'px-4 py-8 sm:px-8 md:px-16 md:py-24',
   as: 'section',
 };
