@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
  * @param {string} [props.href] - Optional URL for link buttons
  * @param {function} [props.onClick] - Click handler
  * @param {string} [props.className=''] - Additional CSS classes
+ * @param {('filled'|'outline')} [props.variant='filled'] - Button variant
  * @returns {JSX.Element}
  */
 export default function MainButton({
@@ -15,14 +16,18 @@ export default function MainButton({
   href,
   onClick,
   className = '',
+  variant = 'filled',
 }) {
   const baseStyles = `
     inline-flex items-center justify-center
     px-4 py-2
-    bg-amber-500 text-slate-800
     rounded-full
-    hover:bg-amber-400
     transition-colors duration-300
+    ${
+      variant === 'filled'
+        ? 'bg-amber-500 text-slate-800 hover:bg-amber-400'
+        : 'border-[1px] border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-slate-800'
+    }
     ${className}
   `.trim();
 
@@ -46,4 +51,5 @@ MainButton.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
+  variant: PropTypes.oneOf(['filled', 'outline']),
 };

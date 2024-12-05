@@ -7,6 +7,8 @@ import MainProjectImage from '../assets/images/project/main-project-one@2x.webp'
 import SkillSection from '../components/sections/other/SkillSection';
 import TestimonialSection from '../components/sections/other/TestimonialSection';
 import Cta from '../components/layout/Cta';
+import HomeHero from '../components/sections/hero/HomeHero';
+
 export default function Home() {
   const projects = [
     {
@@ -34,6 +36,7 @@ export default function Home() {
 
   return (
     <>
+      <HomeHero />
       <SideSectionReverse
         image={HomeSideImage}
         title='What I do?'
