@@ -2,8 +2,8 @@ import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
 import ContactForm from './ContactForm';
 import ContactButton from '../../ui/button/ContactButton';
-import phoneIcon from '../../../assets/svg/phone.svg';
-import emailIcon from '../../../assets/svg/email.svg';
+import phoneIcon from '../../../assets/svg/contact/phone.svg';
+import emailIcon from '../../../assets/svg/contact/email.svg';
 import Address from '../../ui/common/Address';
 
 export default function ContactSection() {

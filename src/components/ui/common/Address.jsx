@@ -1,4 +1,4 @@
-import MapIcon from '../../../assets/svg/map.svg';
+import MapIcon from '../../../assets/svg/contact/map.svg';
 export default function Address() {
   return (
     <address className='inline-flex items-center space-x-2 text-slate-50 '>
