@@ -12,7 +12,7 @@ import LogoImage from '../../../assets/svg/logo/react.svg';
 export default function Logo({
   src = LogoImage,
   alt = 'Logo',
-  className = 'w-24 h-24',
+  className = 'w-24 h-24 hover:scale-110 transition-all duration-300',
 }) {
   return (
     <div>

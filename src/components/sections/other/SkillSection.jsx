@@ -52,7 +52,7 @@ export default function SkillSection() {
                 key={index}
                 src={logo.src}
                 alt={logo.alt}
-                className='w-24 h-24'
+                className='w-24 h-24 hover:scale-110 transition-all duration-300'
               />
             ))}
           </Grid>
