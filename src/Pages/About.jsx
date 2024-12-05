@@ -3,6 +3,7 @@ import SideSectionReverse from '../components/sections/other/SideSectionReverse'
 import ContentSectionCenter from '../components/sections/other/ContentSectionCenter';
 import ImageAboutHero from '../assets/images/about/hero-about@2x.webp';
 import ImageAboutTwo from '../assets/images/about/image-about-two@2x.webp';
+
 export default function About() {
   return (
     <>
