@@ -5,6 +5,8 @@ import Container from '../components/ui/container/Container';
 import ProjectCard from '../components/ui/common/ProjectCard';
 import MainProjectImage from '../assets/images/project/main-project-one@2x.webp';
 import SkillSection from '../components/sections/other/SkillSection';
+import TestimonialSection from '../components/sections/other/TestimonialSection';
+
 export default function Home() {
   const projects = [
     {
@@ -63,6 +65,7 @@ export default function Home() {
         </Container>
       </Section>
       <SkillSection />
+      <TestimonialSection />
     </>
   );
 }
