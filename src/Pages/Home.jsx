@@ -6,7 +6,7 @@ import ProjectCard from '../components/ui/common/ProjectCard';
 import MainProjectImage from '../assets/images/project/main-project-one@2x.webp';
 import SkillSection from '../components/sections/other/SkillSection';
 import TestimonialSection from '../components/sections/other/TestimonialSection';
-
+import Cta from '../components/layout/Cta';
 export default function Home() {
   const projects = [
     {
@@ -66,6 +66,7 @@ export default function Home() {
       </Section>
       <SkillSection />
       <TestimonialSection />
+      <Cta />
     </>
   );
 }
