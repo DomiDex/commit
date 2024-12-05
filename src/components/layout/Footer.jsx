@@ -1,6 +1,6 @@
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
-import logo from '../../assets/svg/commit-logo.svg';
+import logo from '../../assets/svg/brand/commit-logo.svg';
 
 export default function Footer() {
   return (

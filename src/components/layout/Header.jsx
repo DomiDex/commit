@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo from '../../assets/svg/commit-logo.svg';
+import logo from '../../assets/svg/brand/commit-logo.svg';
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
 import MainButton from '../ui/button/MainButton';
