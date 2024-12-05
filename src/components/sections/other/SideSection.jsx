@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import placeholderImage from '../../../assets/images/about/hero-about@2x.webp';
 
 /**
  * A flexible side section component with customizable content
@@ -18,7 +19,7 @@ import Container from '../../ui/container/Container';
 export default function SideSection({
   title = 'About Our Mission',
   description = 'We are dedicated to creating exceptional web experiences that combine cutting-edge technology with intuitive design. Our mission is to help businesses thrive in the digital world.',
-  image = 'https://placehold.co/600x400',
+  image = placeholderImage,
   imageAlt = 'About our mission',
   titleAs: TitleComponent = 'h2',
   titleClassName = 'text-4xl font-semibold',
@@ -51,16 +52,4 @@ SideSection.propTypes = {
   titleClassName: PropTypes.string,
   descriptionClassName: PropTypes.string,
   imageClassName: PropTypes.string,
-};
-
-SideSection.defaultProps = {
-  title: 'About Our Mission',
-  description:
-    'We are dedicated to creating exceptional web experiences that combine cutting-edge technology with intuitive design. Our mission is to help businesses thrive in the digital world.',
-  image: 'https://placehold.co/600x400',
-  imageAlt: 'About our mission',
-  titleAs: 'h2',
-  titleClassName: 'text-4xl font-semibold',
-  descriptionClassName: 'text-lg',
-  imageClassName: 'rounded-lg shadow-lg aspect-auto',
 };
