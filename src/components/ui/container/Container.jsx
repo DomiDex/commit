@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  *
  * @param {Object} props
  * @param {React.ReactNode} props.children - The content to be rendered inside the container
- * @param {string} [props.className] - Additional CSS classes to apply
+ * @param {string} [props.className=''] - Additional CSS classes to apply
  * @param {string} [props.as='div'] - The HTML element to render
  * @param {boolean} [props.fluid=false] - Whether the container should be full-width
  * @param {string} [props.bgColor='bg-slate-800'] - Background color class
@@ -51,12 +51,4 @@ Container.propTypes = {
   fluid: PropTypes.bool,
   bgColor: PropTypes.string,
   textColor: PropTypes.string,
-};
-
-Container.defaultProps = {
-  className: '',
-  as: 'div',
-  fluid: false,
-  bgColor: 'bg-slate-800',
-  textColor: 'text-slate-50',
 };
