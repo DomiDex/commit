@@ -11,7 +11,7 @@ import { useTheme } from '../../../context/ThemeContext';
  * @param {string} props.image - The project image URL
  * @param {string} props.imageAlt - The alt text for the project image
  * @param {Array<string>} [props.tags] - Array of tags to display
- * @param {string} [props.className] - Additional CSS classes
+ * @param {string} [props.href] - The link URL
  * @returns {JSX.Element}
  */
 export default function ProjectCard({
@@ -60,13 +60,4 @@ ProjectCard.propTypes = {
   imageAlt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   href: PropTypes.string,
-};
-
-ProjectCard.defaultProps = {
-  title: 'Project Title',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  image: '',
-  imageAlt: 'Project Image',
-  tags: ['React', 'Next.js', 'Tailwind CSS'],
-  href: '#',
 };

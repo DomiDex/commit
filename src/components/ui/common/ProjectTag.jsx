@@ -33,8 +33,3 @@ ProjectTag.propTypes = {
   text: PropTypes.string,
   className: PropTypes.string,
 };
-
-ProjectTag.defaultProps = {
-  text: 'Tag',
-  className: '',
-};

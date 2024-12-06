@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTheme } from '../../../context/ThemeContext';
 
 /**
  * Reusable textarea component with built-in accessibility
@@ -6,26 +7,28 @@ import PropTypes from 'prop-types';
  * @param {Object} props
  * @param {string} props.id - Unique identifier for the textarea
  * @param {string} props.label - Label text for the textarea
- * @param {string} [props.placeholder] - Placeholder text
  * @param {string} props.value - Textarea value
  * @param {function} props.onChange - Change handler function
+ * @param {string} [props.placeholder] - Placeholder text
  * @param {string} [props.error] - Error message to display
  * @param {boolean} [props.required] - Whether the textarea is required
- * @param {number} [props.rows=4] - Number of visible text lines
+ * @param {number} [props.rows=4] - Number of rows to display
  */
 export default function TextArea({
   id,
   label,
-  placeholder,
   value,
   onChange,
+  placeholder = '',
   error,
   required = false,
   rows = 4,
 }) {
+  const { theme } = useTheme();
+
   return (
     <div className='flex flex-col space-y-2'>
-      <label htmlFor={id} className='text-sm font-medium text-slate-200'>
+      <label htmlFor={id} className={`text-sm font-medium ${theme.text}`}>
         {label} {required && <span className='text-amber-500'>*</span>}
       </label>
       <textarea
@@ -37,15 +40,15 @@ export default function TextArea({
         rows={rows}
         className={`
           px-4 py-2
-          bg-slate-700
+          ${theme.lightBg}
+          ${theme.text}
           border
           rounded-lg
           focus:outline-none
           focus:ring-2
           focus:ring-amber-500
-          placeholder:text-slate-400
-          resize-none
-          ${error ? 'border-red-500' : 'border-slate-600'}
+          ${error ? 'border-red-500' : 'border-slate-600/50'}
+          resize-y
         `}
         aria-invalid={error ? 'true' : 'false'}
         aria-describedby={error ? `${id}-error` : undefined}
@@ -62,9 +65,9 @@ export default function TextArea({
 TextArea.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
   error: PropTypes.string,
   required: PropTypes.bool,
   rows: PropTypes.number,

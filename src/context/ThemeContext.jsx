@@ -1,6 +1,7 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
 export const themes = {
   default: {
@@ -25,18 +26,25 @@ export const themes = {
   },
 };
 
-/**
- * Theme provider component that wraps the application to provide theme context
- *
- * @param {React.ReactNode} children - Child components to be wrapped by the provider
- * @returns {JSX.Element} ThemeProvider component
- */
-export function ThemeProvider({ children }) {
-  if (!children) {
-    throw new Error('ThemeProvider requires children components');
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
+  return context;
+};
 
-  const [currentTheme, setCurrentTheme] = useState('default');
+const THEME_STORAGE_KEY = 'preferred-theme';
+
+export function ThemeProvider({ children }) {
+  const [currentTheme, setCurrentTheme] = useState(() => {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    return savedTheme || 'default';
+  });
+
+  useEffect(() => {
+    localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
+  }, [currentTheme]);
 
   const value = {
     currentTheme,
@@ -53,10 +61,6 @@ export function ThemeProvider({ children }) {
   );
 }
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

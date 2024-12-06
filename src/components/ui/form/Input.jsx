@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTheme } from '../../../context/ThemeContext';
 
 /**
  * Reusable input component with built-in accessibility
@@ -23,9 +24,11 @@ export default function Input({
   error,
   required = false,
 }) {
+  const { theme } = useTheme();
+
   return (
     <div className='flex flex-col space-y-2'>
-      <label htmlFor={id} className='text-sm font-medium text-slate-200'>
+      <label htmlFor={id} className={`text-sm font-medium ${theme.text}`}>
         {label} {required && <span className='text-amber-500'>*</span>}
       </label>
       <input
@@ -37,14 +40,15 @@ export default function Input({
         required={required}
         className={`
           px-4 py-2
-          bg-slate-700
+          ${theme.lightBg}
+          ${theme.text}
           border
           rounded-lg
           focus:outline-none
           focus:ring-2
           focus:ring-amber-500
           placeholder:text-slate-400
-          ${error ? 'border-red-500' : 'border-slate-600'}
+          ${error ? 'border-red-500' : 'border-slate-600/50'}
         `}
         aria-invalid={error ? 'true' : 'false'}
         aria-describedby={error ? `${id}-error` : undefined}

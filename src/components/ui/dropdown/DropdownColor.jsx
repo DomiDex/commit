@@ -12,7 +12,7 @@ import purpleColor from '../../../assets/svg/color/purple.svg';
  */
 export default function DropdownColor() {
   const [isOpen, setIsOpen] = useState(false);
-  const { currentTheme, setCurrentTheme } = useTheme();
+  const { currentTheme, setCurrentTheme, theme } = useTheme();
 
   const colors = [
     { name: 'Default', icon: defaultColor, value: 'default' },
@@ -32,7 +32,7 @@ export default function DropdownColor() {
     <div className='relative'>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className='relative p-2 rounded-full group transition-all duration-300 hover:bg-slate-700'
+        className={`relative p-2 rounded-full group transition-all duration-300 hover:${theme.lightBg}`}
         aria-expanded={isOpen}
         aria-haspopup='true'
       >
@@ -40,10 +40,12 @@ export default function DropdownColor() {
           <img
             src={currentColor.icon}
             alt='Theme color'
-            className='w-6 h-6 transform transition-transform duration-300 group-hover:scale-110'
+            className='w-6 h-6 transform transition-transform duration-300 group-hover:scale-110 border-[1px] border-slate-100/50 rounded-full'
           />
         </div>
-        <div className='absolute inset-0 rounded-full bg-slate-600/0 transition-colors duration-300 group-hover:bg-slate-600/10' />
+        <div
+          className={`absolute inset-0 rounded-full bg-slate-600/0 transition-colors duration-300 group-hover:${theme.lightBg}/10`}
+        />
       </button>
 
       {isOpen && (
