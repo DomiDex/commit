@@ -1,8 +1,8 @@
 import MainHero from '../components/sections/hero/MainHero';
 import ProjectSingleDescription from '../components/sections/projects/ProjectSingleDescription';
-import projectOne from '../assets/images/project/project-one@2x.webp';
-import projectTwo from '../assets/images/project/project-two@2x.webp';
-import projectThree from '../assets/images/project/project-three@2x.webp';
+import projectOne from '@assets/images/project/project-one@2x.webp';
+import projectTwo from '@assets/images/project/project-two@2x.webp';
+import projectThree from '@assets/images/project/project-three@2x.webp';
 import ProjectCardSection from '../components/sections/projects/ProjectSingleCardSection';
 
 export default function ProjectSingle() {
