@@ -1,8 +1,6 @@
 import SideSection from '../components/sections/other/SideSection';
 import SideSectionReverse from '../components/sections/other/SideSectionReverse';
 import ContentSectionCenter from '../components/sections/other/ContentSectionCenter';
-import AboutImage from '../assets/images/about/main-about-one@2x.webp';
-import AboutSideImage from '../assets/images/about/main-about-two@2x.webp';
 
 export default function About() {
   return (
@@ -10,7 +8,7 @@ export default function About() {
       <SideSection
         title='Who am I?'
         description={`This project involved creating a dynamic e-commerce platform tailored to the client's specifications.`}
-        image={AboutImage}
+        image='/images/about/main-about-one@2x.webp'
         imageAlt='Vision illustration'
         titleAs='h1'
       />
@@ -21,7 +19,7 @@ export default function About() {
       <SideSectionReverse
         title='What I do?'
         description={`This project involved creating a dynamic e-commerce platform tailored to the client's specifications.`}
-        image={AboutSideImage}
+        image='/images/about/main-about-two@2x.webp'
         imageAlt='Vision illustration'
         titleAs='h2'
       />
