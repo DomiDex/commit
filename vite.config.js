@@ -19,17 +19,15 @@ export default defineConfig({
           if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(extType)) {
             extType = 'img';
           }
-          return `assets/${extType}/[name]-[hash][extname]`;
+          return `assets/${extType}/[name][extname]`;
         },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
+        chunkFileNames: 'assets/js/[name].js',
+        entryFileNames: 'assets/js/[name].js',
       },
     },
+    copyPublicDir: true,
+    emptyOutDir: true,
   },
-  experimental: {
-    // This will help with asset handling
-    renderBuiltUrl(filename) {
-      return filename.startsWith('/assets/') ? filename : `/assets/${filename}`;
-    },
-  },
+  publicDir: 'public',
+  base: '/',
 });
