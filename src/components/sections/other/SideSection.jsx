@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import imageAbout from '../../../assets/images/about/image-about-two@2x.webp';
+import imageAbout from '../../../assets/images/about/main-about-two@2x.webp';
 
 /**
  * A flexible side section component with customizable content
