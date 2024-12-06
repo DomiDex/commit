@@ -46,7 +46,7 @@ export default function TestimonialSection() {
                 profileImage={testimonial.profileImage}
                 authorName={testimonial.authorName}
                 authorTitle={testimonial.authorTitle}
-                className='bg-slate-800 p-6 rounded-lg'
+                className=' p-6 rounded-lg'
               />
             ))}
           </div>

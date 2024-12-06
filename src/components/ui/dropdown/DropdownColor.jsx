@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTheme } from '../../../context/ThemeContext';
 import defaultColor from '../../../assets/svg/color/default-color.svg';
 import blueColor from '../../../assets/svg/color/blue.svg';
 import greenColor from '../../../assets/svg/color/green.svg';
@@ -11,13 +12,21 @@ import purpleColor from '../../../assets/svg/color/purple.svg';
  */
 export default function DropdownColor() {
   const [isOpen, setIsOpen] = useState(false);
+  const { currentTheme, setCurrentTheme } = useTheme();
 
   const colors = [
-    { name: 'Default', icon: defaultColor },
-    { name: 'Blue', icon: blueColor },
-    { name: 'Green', icon: greenColor },
-    { name: 'Purple', icon: purpleColor },
+    { name: 'Default', icon: defaultColor, value: 'default' },
+    { name: 'Blue', icon: blueColor, value: 'blue' },
+    { name: 'Green', icon: greenColor, value: 'green' },
+    { name: 'Purple', icon: purpleColor, value: 'purple' },
   ];
+
+  const handleColorChange = (colorValue) => {
+    setCurrentTheme(colorValue);
+    setIsOpen(false);
+  };
+
+  const currentColor = colors.find((color) => color.value === currentTheme);
 
   return (
     <div className='relative'>
@@ -29,7 +38,7 @@ export default function DropdownColor() {
       >
         <div className='relative z-10 flex items-center justify-center'>
           <img
-            src={defaultColor}
+            src={currentColor.icon}
             alt='Theme color'
             className='w-6 h-6 transform transition-transform duration-300 group-hover:scale-110'
           />
@@ -47,10 +56,10 @@ export default function DropdownColor() {
             <div className='py-1' role='menu' aria-orientation='vertical'>
               {colors.map((color) => (
                 <button
-                  key={color.name}
+                  key={color.value}
                   className='flex items-center w-full px-4 py-2 text-sm text-slate-50 hover:bg-slate-600 transition-colors duration-300'
                   role='menuitem'
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleColorChange(color.value)}
                 >
                   <img
                     src={color.icon}

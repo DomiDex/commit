@@ -4,16 +4,19 @@ import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
 import MainButton from '../ui/button/MainButton';
 import DropdownColor from '../ui/dropdown/DropdownColor';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
 
   return (
     <>
       <Section
         as='header'
         padding='px-4 py-4'
-        className='fixed top-0 left-0 w-full z-50 bg-slate-800/80 backdrop-blur-md'
+        className='fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-opacity-80'
+        bgColor={theme.background}
       >
         <Container className='bg-transparent'>
           <div className='flex items-center justify-between'>
@@ -89,14 +92,16 @@ export default function Header() {
       {/* Mobile Navigation Overlay */}
       {isOpen && (
         <div
-          className='fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 md:hidden'
+          className={`fixed inset-0 ${theme.background} bg-opacity-50 backdrop-blur-sm z-40 md:hidden`}
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-slate-800/80 backdrop-blur-md z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-64 ${
+          theme.background
+        } bg-opacity-80 backdrop-blur-md z-50 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}
       >

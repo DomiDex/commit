@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTheme } from '../../../context/ThemeContext';
 
 /**
  * A flexible section component with customizable styles
@@ -6,8 +7,8 @@ import PropTypes from 'prop-types';
  * @param {Object} props
  * @param {React.ReactNode} props.children - The content to be rendered inside the section
  * @param {string} [props.className=''] - Additional CSS classes to apply
- * @param {string} [props.bgColor='bg-slate-800'] - Background color class
- * @param {string} [props.textColor='text-slate-50'] - Text color class
+ * @param {string} [props.bgColor=''] - Background color class
+ * @param {string} [props.textColor=''] - Text color class
  * @param {string} [props.padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'] - Padding classes
  * @param {string} [props.as='section'] - The HTML element to render
  * @returns {JSX.Element}
@@ -15,17 +16,19 @@ import PropTypes from 'prop-types';
 export default function Section({
   children,
   className = '',
-  bgColor = 'bg-slate-800',
-  textColor = 'text-slate-50',
+  bgColor = '',
+  textColor = '',
   padding = 'px-4 py-8 sm:px-8 md:px-16 md:py-24',
   as: Component = 'section',
 }) {
+  const { theme } = useTheme();
+
   return (
     <Component
       className={`
         ${padding}
-        ${bgColor}
-        ${textColor}
+        ${bgColor || theme.background}
+        ${textColor || theme.text}
         ${className}
       `.trim()}
     >

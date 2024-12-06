@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTheme } from '../../../context/ThemeContext';
 
 /**
  * A flexible container component with customizable styles
@@ -8,8 +9,8 @@ import PropTypes from 'prop-types';
  * @param {string} [props.className=''] - Additional CSS classes to apply
  * @param {string} [props.as='div'] - The HTML element to render
  * @param {boolean} [props.fluid=false] - Whether the container should be full-width
- * @param {string} [props.bgColor='bg-slate-800'] - Background color class
- * @param {string} [props.textColor='text-slate-50'] - Text color class
+ * @param {string} [props.bgColor='bg-transparent'] - Background color class
+ * @param {string} [props.textColor=''] - Text color class
  * @returns {JSX.Element}
  */
 export default function Container({
@@ -17,9 +18,10 @@ export default function Container({
   className = '',
   as: Component = 'div',
   fluid = false,
-  bgColor = 'bg-slate-800',
-  textColor = 'text-slate-50',
+  bgColor = 'bg-transparent',
+  textColor = '',
 }) {
+  const { theme } = useTheme();
   const baseClasses = fluid ? 'w-full' : 'container mx-auto px-4';
 
   return (
@@ -27,7 +29,7 @@ export default function Container({
       className={`
         ${baseClasses}
         ${bgColor}
-        ${textColor}
+        ${textColor || theme.text}
         ${className}
       `.trim()}
     >

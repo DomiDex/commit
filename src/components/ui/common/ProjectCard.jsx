@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import ProjectTag from './ProjectTag';
+import { useTheme } from '../../../context/ThemeContext';
 
 /**
  * A card component for displaying project information
@@ -14,17 +15,19 @@ import ProjectTag from './ProjectTag';
  * @returns {JSX.Element}
  */
 export default function ProjectCard({
-  title = 'Project Title',
-  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  image,
-  imageAlt = 'Project Image',
+  title = '',
+  description = '',
+  image = '',
+  imageAlt = '',
   tags = [],
-  className = '',
+  href = '#',
 }) {
+  const { theme } = useTheme();
+
   return (
     <a
-      href='/projects/single-project'
-      className={`w-full md:w-10/12 mx-auto flex flex-col items-center justify-center rounded-2xl overflow-hidden relative group hover:shadow-xl ${className}`}
+      href={href}
+      className={`w-full md:w-10/12 mx-auto flex flex-col items-center justify-center rounded-2xl overflow-hidden relative group hover:shadow-xl`}
     >
       <div className='overflow-hidden'>
         <img
@@ -33,7 +36,9 @@ export default function ProjectCard({
           alt={imageAlt}
         />
       </div>
-      <div className='w-full flex flex-row items-start justify-between space-y-4 bg-slate-700 p-4'>
+      <div
+        className={`w-full flex flex-row items-start justify-between space-y-4 ${theme.lightBg} p-4`}
+      >
         <div className='flex flex-col items-start justify-start space-y-4'>
           <p className='text-2xl font-bold'>{title}</p>
           <div className='flex flex-wrap gap-2'>
@@ -54,7 +59,7 @@ ProjectCard.propTypes = {
   image: PropTypes.string,
   imageAlt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
-  className: PropTypes.string,
+  href: PropTypes.string,
 };
 
 ProjectCard.defaultProps = {
@@ -63,5 +68,5 @@ ProjectCard.defaultProps = {
   image: '',
   imageAlt: 'Project Image',
   tags: ['React', 'Next.js', 'Tailwind CSS'],
-  className: '',
+  href: '#',
 };
