@@ -8,7 +8,8 @@ import ProjectSingle from './Pages/ProjectSingle';
 import Contact from './Pages/Contact';
 import { Outlet } from 'react-router-dom';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
-
+import Privacy from './Pages/Privacy';
+import Terms from './Pages/Terms';
 /**
  * Layout component that includes Header and Footer
  * @returns {JSX.Element} Layout component with Header, Outlet for child routes, and Footer
@@ -50,6 +51,8 @@ export default function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/projects' element={<Project />} />
           <Route path='/projects/single-project' element={<ProjectSingle />} />
+          <Route path='/privacy' element={<Privacy />} />
+          <Route path='/terms' element={<Terms />} />
         </Route>
 
         {/* Routes without Header and Footer */}
