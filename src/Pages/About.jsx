@@ -1,7 +1,7 @@
 import SideSection from '../components/sections/other/SideSection';
 import SideSectionReverse from '../components/sections/other/SideSectionReverse';
 import ContentSectionCenter from '../components/sections/other/ContentSectionCenter';
-import AboutImage from '@assets/images/about/about-side-one@2x.webp';
+import AboutImage from '@assets/images/about/hero-about@2x.webp';
 import ImageAbout from '@assets/images/about/about-side-two@2x.webp';
 
 export default function About() {
