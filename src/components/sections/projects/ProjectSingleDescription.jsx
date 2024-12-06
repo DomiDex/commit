@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import defaultProjectImage from '../../../assets/images/project/project-one@2x.webp';
+import mainProjectTwoImage from '../../../assets/images/project/project-two@2x.webp';
+import mainProjectThreeImage from '../../../assets/images/project/project-three@2x.webp';
 
 export default function ProjectSingleDescription({
   title = 'Innovative Web Solution',
@@ -12,15 +15,15 @@ export default function ProjectSingleDescription({
   descriptionClassName = '',
   images = [
     {
-      url: 'https://placehold.co/600x400',
+      url: defaultProjectImage,
       alt: 'Project screenshot 1',
     },
     {
-      url: 'https://placehold.co/600x400',
+      url: mainProjectTwoImage,
       alt: 'Project screenshot 2',
     },
     {
-      url: 'https://placehold.co/600x400',
+      url: mainProjectThreeImage,
       alt: 'Project screenshot 3',
     },
   ],
@@ -91,15 +94,15 @@ ProjectSingleDescription.defaultProps = {
   descriptionClassName: '',
   images: [
     {
-      url: 'https://placehold.co/600x400',
+      url: defaultProjectImage,
       alt: 'Project screenshot 1',
     },
     {
-      url: 'https://placehold.co/600x400',
+      url: defaultProjectImage,
       alt: 'Project screenshot 2',
     },
     {
-      url: 'https://placehold.co/600x400',
+      url: defaultProjectImage,
       alt: 'Project screenshot 3',
     },
   ],

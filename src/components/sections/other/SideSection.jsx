@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import placeholderImage from '../../../assets/images/about/hero-about@2x.webp';
+import imageAbout from '../../../assets/images/about/image-about-two@2x.webp';
 
 /**
  * A flexible side section component with customizable content
@@ -19,7 +19,7 @@ import placeholderImage from '../../../assets/images/about/hero-about@2x.webp';
 export default function SideSection({
   title = 'About Our Mission',
   description = 'We are dedicated to creating exceptional web experiences that combine cutting-edge technology with intuitive design. Our mission is to help businesses thrive in the digital world.',
-  image = placeholderImage,
+  image = imageAbout,
   imageAlt = 'About our mission',
   titleAs: TitleComponent = 'h2',
   titleClassName = 'text-4xl font-semibold',

@@ -4,6 +4,8 @@ import Section from '../components/ui/section/Section';
 import Container from '../components/ui/container/Container';
 import ProjectCard from '../components/ui/common/ProjectCard';
 import MainProjectImage from '../assets/images/project/main-project-one@2x.webp';
+import MainProjectTwoImage from '../assets/images/project/main-project-two@2x.webp';
+import MainProjectThreeImage from '../assets/images/project/main-project-three@2x.webp';
 import SkillSection from '../components/sections/other/SkillSection';
 import TestimonialSection from '../components/sections/other/TestimonialSection';
 import Cta from '../components/layout/Cta';
@@ -21,14 +23,14 @@ export default function Home() {
     {
       title: 'Portfolio Website',
       description: 'A responsive portfolio website showcasing creative work',
-      image: MainProjectImage,
+      image: MainProjectTwoImage,
       imageAlt: 'Portfolio project screenshot',
       tags: ['React', 'Tailwind', 'Vite'],
     },
     {
       title: 'Task Management App',
       description: 'A collaborative task management application',
-      image: MainProjectImage,
+      image: MainProjectThreeImage,
       imageAlt: 'Task management project screenshot',
       tags: ['React', 'Redux', 'Firebase'],
     },

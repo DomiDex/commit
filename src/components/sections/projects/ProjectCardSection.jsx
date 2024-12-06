@@ -1,35 +1,37 @@
 import ProjectCard from '../../ui/common/ProjectCard';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import MainProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
+import defaultProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
+import mainProjectTwoImage from '../../../assets/images/project/main-project-two@2x.webp';
+import mainProjectThreeImage from '../../../assets/images/project/main-project-three@2x.webp';
 
 export default function ProjectCardSection() {
   const projects = [
     {
       title: 'E-Commerce Platform',
       description: 'A modern e-commerce solution built with React and Node.js',
-      image: MainProjectImage,
+      image: defaultProjectImage,
       imageAlt: 'E-commerce project screenshot',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
     {
       title: 'Portfolio Website',
       description: 'A responsive portfolio website showcasing creative work',
-      image: MainProjectImage,
+      image: mainProjectTwoImage,
       imageAlt: 'Portfolio project screenshot',
       tags: ['React', 'Tailwind', 'Vite'],
     },
     {
       title: 'Task Management App',
       description: 'A collaborative task management application',
-      image: MainProjectImage,
+      image: mainProjectThreeImage,
       imageAlt: 'Task management project screenshot',
       tags: ['React', 'Redux', 'Firebase'],
     },
     {
       title: 'Social Media Dashboard',
       description: 'A comprehensive social media analytics dashboard',
-      image: MainProjectImage,
+      image: defaultProjectImage,
       imageAlt: 'Dashboard project screenshot',
       tags: ['React', 'D3.js', 'API'],
     },

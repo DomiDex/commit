@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import AboutHeroImage from '../../../assets/images/about/Hero-about@2x.webp';
 
 /**
  * A flexible side section component with customizable content and reversed layout
@@ -13,12 +14,13 @@ import Container from '../../ui/container/Container';
  * @param {('h1'|'h2'|'h3')} [props.titleAs='h2'] - The heading level to use
  * @param {string} [props.titleClassName='text-4xl font-semibold'] - Custom title classes
  * @param {string} [props.descriptionClassName='text-lg'] - Custom description classes
- * @param {string} [props.imageClassName='rounded-lg shadow-lg aspect-auto'] - Custom image classes
+ * @param {string} [props.imageClassName='rounded-lg shadow-lg aspect-auto']
+ * - Custom image classes
  */
 export default function SideSectionReverse({
   title = 'About Our Mission',
   description = 'We are dedicated to creating exceptional web experiences that combine cutting-edge technology with intuitive design. Our mission is to help businesses thrive in the digital world.',
-  image = 'https://placehold.co/600x400',
+  image = AboutHeroImage,
   imageAlt = 'About our mission',
   titleAs: TitleComponent = 'h2',
   titleClassName = 'text-4xl font-semibold',

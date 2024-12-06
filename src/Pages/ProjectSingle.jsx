@@ -1,7 +1,10 @@
 import MainHero from '../components/sections/hero/MainHero';
 import ProjectSingleDescription from '../components/sections/projects/ProjectSingleDescription';
-import { PLACEHOLDER_IMAGE } from '../constants/images';
+
 import ProjectCardSection from '../components/sections/projects/ProjectSingleCardSection';
+import projectOneImage from '../assets/images/project/project-one@2x.webp';
+import projectTwoImage from '../assets/images/project/project-two@2x.webp';
+import projectThreeImage from '../assets/images/project/project-three@2x.webp';
 
 export default function ProjectSingle() {
   return (
@@ -11,15 +14,15 @@ export default function ProjectSingle() {
         titleClassName='text-2xl md:text-4xl font-bold '
         images={[
           {
-            url: PLACEHOLDER_IMAGE,
+            url: projectOneImage,
             alt: 'Homepage screenshot',
           },
           {
-            url: PLACEHOLDER_IMAGE,
+            url: projectTwoImage,
             alt: 'Dashboard view',
           },
           {
-            url: PLACEHOLDER_IMAGE,
+            url: projectThreeImage,
             alt: 'Mobile responsive design',
           },
         ]}
