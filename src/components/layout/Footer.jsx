@@ -37,8 +37,14 @@ export default function Footer() {
             <div className={`w-full h-[1px] ${theme.lightBg}`}></div>
             <div className='w-full flex md:flex-row flex-col items-center justify-between space-y-2'>
               <p className='text-sm text-slate-300'>
-                &copy; {new Date().getFullYear()} reactory UI. All rights
-                reserved.
+                &copy; {new Date().getFullYear()}{' '}
+                <a
+                  className=' hover:text-amber-500 transition-colors duration-300'
+                  href='https://www.reactory-ui.com/'
+                >
+                  reactory UI
+                </a>
+                . All rights reserved.
               </p>
               <div className='flex flex-row items-center justify-center space-x-2'>
                 <a
