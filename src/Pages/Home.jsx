@@ -15,6 +15,7 @@ export default function Home() {
   const projects = [
     {
       title: 'E-Commerce Platform',
+      href: '/projects/single-project',
       description: 'A modern e-commerce solution built with React and Node.js',
       image: MainProjectImage,
       imageAlt: 'E-commerce project screenshot',
@@ -22,6 +23,7 @@ export default function Home() {
     },
     {
       title: 'Portfolio Website',
+      href: '/projects/single-project',
       description: 'A responsive portfolio website showcasing creative work',
       image: MainProjectTwoImage,
       imageAlt: 'Portfolio project screenshot',
@@ -29,6 +31,7 @@ export default function Home() {
     },
     {
       title: 'Task Management App',
+      href: '/projects/single-project',
       description: 'A collaborative task management application',
       image: MainProjectThreeImage,
       imageAlt: 'Task management project screenshot',

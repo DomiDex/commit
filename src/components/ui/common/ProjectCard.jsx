@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ProjectTag from './ProjectTag';
 import { useTheme } from '../../../context/ThemeContext';
+import defaultProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
 
 /**
  * A card component for displaying project information
@@ -17,10 +18,10 @@ import { useTheme } from '../../../context/ThemeContext';
 export default function ProjectCard({
   title = '',
   description = '',
-  image = '',
+  image = defaultProjectImage,
   imageAlt = '',
   tags = [],
-  href = '#',
+  href = '/projects/single-project',
 }) {
   const { theme } = useTheme();
 
