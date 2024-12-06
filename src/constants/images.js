@@ -5,11 +5,11 @@ export const PLACEHOLDER_IMAGE =
 export const IMAGES = {
   about: {
     mainAboutOne: {
-      src: '@assets/images/about/main-about-one@2x.webp',
+      src: '/src/assets/images/about/main-about-one@2x.webp',
       alt: 'About main image',
     },
     mainAboutTwo: {
-      src: '@assets/images/about/main-about-two@2x.webp',
+      src: '/src/assets/images/about/main-about-two@2x.webp',
       alt: 'About secondary image',
     },
   },
@@ -21,5 +21,4 @@ export const IMAGES = {
     src: '/assets/images/home/home-hero@2x.webp',
     alt: 'Hero Image',
   },
-  // Add other commonly used images here
 };
