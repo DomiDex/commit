@@ -32,7 +32,7 @@ export default function DropdownColor() {
     <div className='relative'>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`relative p-2 rounded-full group transition-all duration-300 hover:${theme.lightBg}`}
+        className='relative p-2 rounded-full group transition-all duration-300'
         aria-expanded={isOpen}
         aria-haspopup='true'
       >
@@ -44,7 +44,7 @@ export default function DropdownColor() {
           />
         </div>
         <div
-          className={`absolute inset-0 rounded-full bg-slate-600/0 transition-colors duration-300 group-hover:${theme.lightBg}/10`}
+          className={`absolute inset-0 rounded-full ${theme.lightBg} bg-opacity-0 group-hover:bg-opacity-10 transition-colors duration-300`}
         />
       </button>
 
@@ -54,12 +54,14 @@ export default function DropdownColor() {
             className='fixed inset-0 z-40'
             onClick={() => setIsOpen(false)}
           />
-          <div className='absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-slate-700 ring-1 ring-black ring-opacity-5 z-50'>
+          <div
+            className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg ${theme.lightBg} ring-1 ring-black ring-opacity-5 z-50`}
+          >
             <div className='py-1' role='menu' aria-orientation='vertical'>
               {colors.map((color) => (
                 <button
                   key={color.value}
-                  className='flex items-center w-full px-4 py-2 text-sm text-slate-50 hover:bg-slate-600 transition-colors duration-300'
+                  className={`flex items-center w-full px-4 py-2 text-sm ${theme.text} hover:bg-opacity-80 transition-colors duration-300`}
                   role='menuitem'
                   onClick={() => handleColorChange(color.value)}
                 >
