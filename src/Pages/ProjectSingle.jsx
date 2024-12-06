@@ -1,6 +1,6 @@
 import MainHero from '../components/sections/hero/MainHero';
 import ProjectSingleDescription from '../components/sections/projects/ProjectSingleDescription';
-import placeholderImage from '@assets/images/placeholder.webp';
+import { PLACEHOLDER_IMAGE } from '../constants/images';
 import ProjectCardSection from '../components/sections/projects/ProjectSingleCardSection';
 
 export default function ProjectSingle() {
@@ -11,15 +11,15 @@ export default function ProjectSingle() {
         titleClassName='text-2xl md:text-4xl font-bold '
         images={[
           {
-            url: placeholderImage,
+            url: PLACEHOLDER_IMAGE,
             alt: 'Homepage screenshot',
           },
           {
-            url: placeholderImage,
+            url: PLACEHOLDER_IMAGE,
             alt: 'Dashboard view',
           },
           {
-            url: placeholderImage,
+            url: PLACEHOLDER_IMAGE,
             alt: 'Mobile responsive design',
           },
         ]}
