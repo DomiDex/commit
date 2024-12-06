@@ -3,6 +3,7 @@ import logo from '../../assets/svg/brand/commit-logo.svg';
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
 import MainButton from '../ui/button/MainButton';
+import DropdownColor from '../ui/dropdown/DropdownColor';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,6 +79,7 @@ export default function Header() {
                   </a>
                 </li>
               </ul>
+              <DropdownColor />
               <MainButton href='https://calendly.com/' text='Schedule a call' />
             </nav>
           </div>
@@ -141,6 +143,7 @@ export default function Header() {
             >
               Contact
             </a>
+            <DropdownColor />
             <MainButton href='https://calendly.com/' text='Schedule a call' />
           </nav>
         </div>
