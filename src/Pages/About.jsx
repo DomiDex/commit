@@ -21,7 +21,7 @@ export default function About() {
       <SideSectionReverse
         title='What I do?'
         description={`This project involved creating a dynamic e-commerce platform tailored to the client's specifications.`}
-        image={ImageAbout}
+        image={AboutSideImage}
         imageAlt='Vision illustration'
         titleAs='h2'
       />
