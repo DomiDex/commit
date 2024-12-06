@@ -1,7 +1,7 @@
 import ProjectCard from '../../ui/common/ProjectCard';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import MainProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
+import MainProjectImage from '@assets/images/project/main-project-one@2x.webp';
 
 export default function ProjectCardSection() {
   return (

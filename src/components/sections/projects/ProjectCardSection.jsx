@@ -1,9 +1,9 @@
 import ProjectCard from '../../ui/common/ProjectCard';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import defaultProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
-import mainProjectTwoImage from '../../../assets/images/project/main-project-two@2x.webp';
-import mainProjectThreeImage from '../../../assets/images/project/main-project-three@2x.webp';
+import defaultProjectImage from '@assets/images/project/main-project-one@2x.webp';
+import mainProjectTwoImage from '@assets/images/project/main-project-two@2x.webp';
+import mainProjectThreeImage from '@assets/images/project/main-project-three@2x.webp';
 
 export default function ProjectCardSection() {
   const projects = [

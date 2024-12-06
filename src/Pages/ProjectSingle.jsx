@@ -2,9 +2,9 @@ import MainHero from '../components/sections/hero/MainHero';
 import ProjectSingleDescription from '../components/sections/projects/ProjectSingleDescription';
 
 import ProjectCardSection from '../components/sections/projects/ProjectSingleCardSection';
-import projectOneImage from '@assets/images/project/project-one@2x.webp';
-import projectTwoImage from '@assets/images/project/project-two@2x.webp';
-import projectThreeImage from '@assets/images/project/project-three@2x.webp';
+import projectOneImage from '@assets/images/project/main-project-one@2x.webp';
+import projectTwoImage from '@assets/images/project/main-project-two@2x.webp';
+import projectThreeImage from '@assets/images/project/main-project-three@2x.webp';
 
 export default function ProjectSingle() {
   return (
