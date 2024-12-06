@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import imageAbout from '../../../assets/images/about/main-about-two@2x.webp';
 
 /**
  * A flexible side section component with customizable content
@@ -17,25 +16,29 @@ import imageAbout from '../../../assets/images/about/main-about-two@2x.webp';
  * @param {string} [props.imageClassName='rounded-lg shadow-lg aspect-auto'] - Custom image classes
  */
 export default function SideSection({
-  title = 'About Our Mission',
-  description = 'We are dedicated to creating exceptional web experiences that combine cutting-edge technology with intuitive design. Our mission is to help businesses thrive in the digital world.',
-  image = imageAbout,
-  imageAlt = 'About our mission',
+  title,
+  description,
+  image,
+  imageAlt,
   titleAs: TitleComponent = 'h2',
-  titleClassName = 'text-4xl font-semibold',
-  descriptionClassName = 'text-lg',
-  imageClassName = 'rounded-lg shadow-lg aspect-auto',
 }) {
   return (
     <Section padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'>
       <Container>
-        <div className='flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12'>
-          <div className='flex flex-col space-y-4 w-full md:w-1/2'>
-            <TitleComponent className={titleClassName}>{title}</TitleComponent>
-            <p className={descriptionClassName}>{description}</p>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center'>
+          <div className='space-y-4 md:space-y-8'>
+            <TitleComponent className='text-2xl md:text-4xl font-bold'>
+              {title}
+            </TitleComponent>
+            <p className='text-base md:text-lg'>{description}</p>
           </div>
-          <div className='w-full md:w-1/2'>
-            <img src={image} alt={imageAlt} className={imageClassName} />
+          <div className='relative aspect-[4/3] w-full'>
+            <img
+              src={image}
+              alt={imageAlt}
+              className='object-cover rounded-lg w-full h-full'
+              loading='lazy'
+            />
           </div>
         </div>
       </Container>
@@ -44,12 +47,9 @@ export default function SideSection({
 }
 
 SideSection.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  imageAlt: PropTypes.string,
-  titleAs: PropTypes.oneOf(['h1', 'h2', 'h3']),
-  titleClassName: PropTypes.string,
-  descriptionClassName: PropTypes.string,
-  imageClassName: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
+  titleAs: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import AboutHeroImage from '@assets/images/about/main-about-one@2x.webp';
 
 /**
  * A flexible side section component with customizable content and reversed layout
@@ -20,7 +19,7 @@ import AboutHeroImage from '@assets/images/about/main-about-one@2x.webp';
 export default function SideSectionReverse({
   title = 'About Our Mission',
   description = 'We are dedicated to creating exceptional web experiences that combine cutting-edge technology with intuitive design. Our mission is to help businesses thrive in the digital world.',
-  image = AboutHeroImage,
+  image = '/images/about/main-about-one@2x.webp',
   imageAlt = 'About our mission',
   titleAs: TitleComponent = 'h2',
   titleClassName = 'text-4xl font-semibold',
