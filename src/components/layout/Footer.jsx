@@ -1,8 +1,11 @@
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
 import logo from '../../assets/svg/brand/commit-logo.svg';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Footer() {
+  const { theme } = useTheme();
+
   return (
     <Section as='footer' padding='px-4 py-8 sm:px-8 md:px-16 md:pt-24 md:pb-4'>
       <Container>
@@ -31,7 +34,7 @@ export default function Footer() {
             </div>
           </div>
           <div className='flex w-full flex-col items-center justify-center space-y-2'>
-            <div className='w-full h-[1px] bg-slate-600'></div>
+            <div className={`w-full h-[1px] ${theme.lightBg}`}></div>
             <div className='w-full flex md:flex-row flex-col items-center justify-between space-y-2'>
               <p className='text-sm text-slate-300'>
                 &copy; {new Date().getFullYear()} reactory UI. All rights
