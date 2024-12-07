@@ -28,27 +28,29 @@ export default function ProjectCard({
   return (
     <a
       href={href}
-      className={`w-full md:w-10/12 mx-auto flex flex-col items-center justify-center rounded-2xl overflow-hidden relative group hover:shadow-xl`}
+      className={`h-full w-full md:w-10/12 mx-auto flex flex-col rounded-2xl overflow-hidden relative group hover:shadow-xl`}
     >
-      <div className='overflow-hidden'>
+      <div className='relative pt-[56.25%] overflow-hidden'>
         <img
-          className='w-full h-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
+          className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
           src={image}
           alt={imageAlt}
         />
       </div>
       <div
-        className={`w-full flex flex-row items-start justify-between space-y-4 ${theme.lightBg} p-4`}
+        className={`flex-1 flex flex-col justify-between ${theme.lightBg} p-4`}
       >
-        <div className='flex flex-col items-start justify-start space-y-4'>
-          <p className='text-2xl font-bold'>{title}</p>
-          <div className='flex flex-wrap gap-2'>
-            {tags.map((tag, index) => (
-              <ProjectTag key={index} text={tag} />
-            ))}
+        <div className='flex flex-row items-start justify-between'>
+          <div className='flex flex-col items-start justify-start space-y-4'>
+            <p className='text-2xl font-bold'>{title}</p>
+            <div className='flex flex-wrap gap-2'>
+              {tags.map((tag, index) => (
+                <ProjectTag key={index} text={tag} />
+              ))}
+            </div>
           </div>
+          <p className='text-sm w-5/12'>{description}</p>
         </div>
-        <p className='text-sm w-5/12'>{description}</p>
       </div>
     </a>
   );
