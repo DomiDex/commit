@@ -8,7 +8,6 @@ import Container from '../../ui/container/Container';
  * @param {Object} props
  * @param {string} props.title - The title text
  * @param {string} props.description - The description text
- * @param {string} props.image - The image URL
  * @param {string} props.imageAlt - The image alt text
  * @param {('h1'|'h2'|'h3')} [props.titleAs='h2'] - The heading level to use
  * @param {string} [props.titleClassName='text-4xl font-semibold'] - Custom title classes
@@ -18,7 +17,6 @@ import Container from '../../ui/container/Container';
 export default function SideSection({
   title,
   description,
-  image,
   imageAlt,
   titleAs: TitleComponent = 'h2',
 }) {
@@ -34,7 +32,7 @@ export default function SideSection({
           </div>
           <div className='relative aspect-[4/3] w-full'>
             <img
-              src={image}
+              src='src/assets/images/project/side-section@2x.webp'
               alt={imageAlt}
               className='object-cover rounded-lg w-full h-full'
               loading='lazy'
@@ -49,7 +47,6 @@ export default function SideSection({
 SideSection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
   titleAs: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };

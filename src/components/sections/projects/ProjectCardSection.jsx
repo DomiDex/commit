@@ -6,13 +6,15 @@ export default function ProjectCardSection() {
   const projects = [
     {
       title: 'E-Commerce Platform',
+      href: '/projects/single-project',
       description: 'A modern e-commerce solution built with React and Node.js',
-      image: 'src/assets/images/project/main-project-one@2x.webp',
+      image: 'src/assets/images/project/project-one@2x.webp',
       imageAlt: 'E-commerce project screenshot',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
     {
       title: 'Portfolio Website',
+      href: '/projects/single-project',
       description: 'A responsive portfolio website showcasing creative work',
       image: 'src/assets/images/project/main-project-two@2x.webp',
       imageAlt: 'Portfolio project screenshot',
@@ -20,6 +22,7 @@ export default function ProjectCardSection() {
     },
     {
       title: 'Task Management App',
+      href: '/projects/single-project',
       description: 'A collaborative task management application',
       image: 'src/assets/images/project/main-project-three@2x.webp',
       imageAlt: 'Task management project screenshot',
@@ -27,21 +30,24 @@ export default function ProjectCardSection() {
     },
     {
       title: 'Social Media Dashboard',
-      description: 'A comprehensive social media analytics dashboard',
-      image: 'src/assets/images/project/main-project-four@2x.webp',
+      href: '/projects/single-project',
+      description:
+        'A comprehensive analytics dashboard for social media management',
+      image: 'src/assets/images/project/project-one@2x.webp',
       imageAlt: 'Dashboard project screenshot',
-      tags: ['React', 'D3.js', 'API'],
+      tags: ['React', 'TypeScript', 'GraphQL'],
     },
   ];
 
   return (
     <Section padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'>
       <Container>
-        <div className='flex flex-col items-center justify-center space-y-12'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8'>
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
               title={project.title}
+              href={project.href}
               description={project.description}
               image={project.image}
               imageAlt={project.imageAlt}

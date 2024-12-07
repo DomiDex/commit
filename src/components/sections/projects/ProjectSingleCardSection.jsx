@@ -1,7 +1,6 @@
 import ProjectCard from '../../ui/common/ProjectCard';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import MainProjectImage from '@assets/images/project/main-project-one@2x.webp';
 
 export default function ProjectCardSection() {
   return (
@@ -21,7 +20,7 @@ export default function ProjectCardSection() {
             title='My Amazing Project'
             projectLink='/project/single-project'
             description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.'
-            image={MainProjectImage}
+            image='src/assets/images/project/main-project-one@2x.webp'
             imageAlt='Project screenshot'
             tags={['React', 'Node.js', 'MongoDB']}
           />
