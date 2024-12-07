@@ -8,18 +8,18 @@ import testimonialImage2 from '../../../assets/images/testimonial/testi-profile-
 export default function TestimonialSection() {
   const testimonials = [
     {
-      starIcon: testimonialStar,
+      starIcon: 'src/assets/svg/Testimonial/Stars.svg',
       quote:
         'Working with this developer was an absolute pleasure. Their technical expertise and attention to detail resulted in a product that exceeded our expectations.',
-      profileImage: testimonialImage,
+      profileImage: 'src/assets/images/testimonial/test-profile.webp',
       authorName: 'Jane Smith',
       authorTitle: 'CTO, Tech Corp',
     },
     {
-      starIcon: testimonialStar,
+      starIcon: 'src/assets/svg/Testimonial/Stars.svg',
       quote:
         'Exceptional problem-solving skills and a great communicator. Delivered our project on time and with outstanding quality. Highly recommended!',
-      profileImage: testimonialImage2,
+      profileImage: 'src/assets/images/testimonial/testi-profile-01.webp',
       authorName: 'John Doe',
       authorTitle: 'Founder, Digital Solutions',
     },
