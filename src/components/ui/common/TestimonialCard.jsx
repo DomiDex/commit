@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import testimonialStar from '../../../assets/svg/testimonial/stars.svg';
-import testimonialImage from '../../../assets/images/testimonial/test-profile.webp';
 
 /**
  * A testimonial card component with customizable content
@@ -14,9 +12,9 @@ import testimonialImage from '../../../assets/images/testimonial/test-profile.we
  * @param {string} [props.className] - Additional CSS classes
  */
 export default function TestimonialCard({
-  starIcon = testimonialStar,
+  starIcon = 'src/assets/svg/Testimonial/Stars.svg',
   quote = "The project exceeded our expectations, showcasing exceptional skill and dedication. We couldn't be happier with the results!",
-  profileImage = testimonialImage,
+  profileImage = 'src/assets/images/testimonial/test-profile.webp',
   authorName = 'John Doe',
   authorTitle = 'CEO, Company Name',
   className = '',
