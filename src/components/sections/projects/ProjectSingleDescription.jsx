@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import defaultProjectImage from '../../../assets/images/project/project-one@2x.webp';
-import mainProjectTwoImage from '../../../assets/images/project/project-two@2x.webp';
-import mainProjectThreeImage from '../../../assets/images/project/project-three@2x.webp';
 
 export default function ProjectSingleDescription({
   title = 'Innovative Web Solution',
@@ -15,15 +12,15 @@ export default function ProjectSingleDescription({
   descriptionClassName = '',
   images = [
     {
-      url: defaultProjectImage,
+      url: 'src/assets/images/project/project-one@2x.webp',
       alt: 'Project screenshot 1',
     },
     {
-      url: mainProjectTwoImage,
+      url: 'src/assets/images/project/project-two@2x.webp',
       alt: 'Project screenshot 2',
     },
     {
-      url: mainProjectThreeImage,
+      url: 'src/assets/images/project/project-three@2x.webp',
       alt: 'Project screenshot 3',
     },
   ],
@@ -55,6 +52,7 @@ export default function ProjectSingleDescription({
                 src={image.url}
                 alt={image.alt}
                 className={imageClassName}
+                loading='lazy'
               />
             ))}
           </div>
@@ -94,15 +92,15 @@ ProjectSingleDescription.defaultProps = {
   descriptionClassName: '',
   images: [
     {
-      url: defaultProjectImage,
+      url: 'src/assets/images/project/project-one@2x.webp',
       alt: 'Project screenshot 1',
     },
     {
-      url: defaultProjectImage,
+      url: 'src/assets/images/project/project-two@2x.webp',
       alt: 'Project screenshot 2',
     },
     {
-      url: defaultProjectImage,
+      url: 'src/assets/images/project/project-three@2x.webp',
       alt: 'Project screenshot 3',
     },
   ],
