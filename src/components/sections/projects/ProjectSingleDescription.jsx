@@ -1,25 +1,7 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import { useState } from 'react';
-
-// Import all images
-const images = {
-  projectOne: new URL(
-    '../../../assets/images/project/main-project-one@2x.webp',
-    import.meta.url
-  ).href,
-  projectTwo: new URL(
-    '../../../assets/images/project/main-project-two@2x.webp',
-    import.meta.url
-  ).href,
-  projectThree: new URL(
-    '../../../assets/images/project/main-project-three@2x.webp',
-    import.meta.url
-  ).href,
-};
-
-console.log('Image URLs:', images);
+import { useState, useEffect } from 'react';
 
 export default function ProjectSingleDescription({
   title = 'Innovative Web Solution',
@@ -29,23 +11,48 @@ export default function ProjectSingleDescription({
     back end, we ensured a seamless user experience.`,
   titleClassName = 'text-2xl md:text-4xl font-bold text-center',
   descriptionClassName = '',
-  imagesList = [
-    {
-      url: images.projectOne,
-      alt: 'Project screenshot 1',
-    },
-    {
-      url: images.projectTwo,
-      alt: 'Project screenshot 2',
-    },
-    {
-      url: images.projectThree,
-      alt: 'Project screenshot 3',
-    },
-  ],
   imageClassName = 'w-full h-auto rounded-lg shadow-lg',
 }) {
   const [imageErrors, setImageErrors] = useState({});
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // Dynamic imports for images
+    const loadImages = async () => {
+      try {
+        const projectOne = await import(
+          '../../../assets/images/project/project-one@2x.webp'
+        );
+        const projectTwo = await import(
+          '../../../assets/images/project/project-two@2x.webp'
+        );
+        const projectThree = await import(
+          '../../../assets/images/project/project-three@2x.webp'
+        );
+
+        setImages([
+          {
+            url: projectOne.default,
+            alt: 'Project screenshot 1',
+          },
+          {
+            url: projectTwo.default,
+            alt: 'Project screenshot 2',
+          },
+          {
+            url: projectThree.default,
+            alt: 'Project screenshot 3',
+          },
+        ]);
+
+        console.log('Loaded images:', { projectOne, projectTwo, projectThree });
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+
+    loadImages();
+  }, []);
 
   const formattedDescription = description
     .split('\n\n')
@@ -57,11 +64,11 @@ export default function ProjectSingleDescription({
     ));
 
   const handleImageError = (index) => {
-    console.error('Image failed to load:', imagesList[index].url);
     setImageErrors((prev) => ({
       ...prev,
       [index]: true,
     }));
+    console.error('Image failed to load:', images[index]?.url);
   };
 
   return (
@@ -75,7 +82,7 @@ export default function ProjectSingleDescription({
             </div>
           </div>
           <div className='w-full md:w-7/12 flex flex-col space-y-8'>
-            {imagesList.map((image, index) => (
+            {images.map((image, index) => (
               <div
                 key={index}
                 className='relative bg-gray-100 rounded-lg overflow-hidden'
@@ -108,12 +115,6 @@ ProjectSingleDescription.propTypes = {
   description: PropTypes.string,
   titleClassName: PropTypes.string,
   descriptionClassName: PropTypes.string,
-  imagesList: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-    })
-  ),
   imageClassName: PropTypes.string,
 };
 
@@ -132,19 +133,5 @@ ProjectSingleDescription.defaultProps = {
     `,
   titleClassName: 'text-2xl font-semibold',
   descriptionClassName: '',
-  imagesList: [
-    {
-      url: images.projectOne,
-      alt: 'Project screenshot 1',
-    },
-    {
-      url: images.projectTwo,
-      alt: 'Project screenshot 2',
-    },
-    {
-      url: images.projectThree,
-      alt: 'Project screenshot 3',
-    },
-  ],
   imageClassName: 'w-full h-auto rounded-lg shadow-lg',
 };

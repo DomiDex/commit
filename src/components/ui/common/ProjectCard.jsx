@@ -25,25 +25,9 @@ export default function ProjectCard({
 }) {
   const { theme } = useTheme();
   const [imageError, setImageError] = useState(false);
-  const [imageSrc, setImageSrc] = useState('');
 
   useEffect(() => {
-    // Handle both import.meta.url assets and regular URLs
-    const loadImage = async () => {
-      try {
-        if (typeof image === 'string') {
-          setImageSrc(image);
-        } else if (image?.default) {
-          setImageSrc(image.default);
-        }
-        console.log('Setting image src to:', imageSrc);
-      } catch (error) {
-        console.error('Error loading image:', error);
-        setImageError(true);
-      }
-    };
-
-    loadImage();
+    console.log('Image prop received:', image);
   }, [image]);
 
   return (
@@ -52,13 +36,13 @@ export default function ProjectCard({
       className={`h-full w-full md:w-10/12 mx-auto flex flex-col rounded-2xl overflow-hidden relative group hover:shadow-xl`}
     >
       <div className='relative pt-[56.25%] overflow-hidden bg-gray-100'>
-        {!imageError && imageSrc ? (
+        {!imageError ? (
           <img
             className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
-            src={imageSrc}
+            src={image}
             alt={imageAlt}
             onError={(e) => {
-              console.error('Image failed to load:', e.target.src);
+              console.error('Image failed to load:', e);
               setImageError(true);
             }}
             loading='lazy'
@@ -66,8 +50,7 @@ export default function ProjectCard({
         ) : (
           <div className='absolute inset-0 flex items-center justify-center bg-gray-200'>
             <span className='text-gray-400'>
-              Image not available
-              {imageSrc && `: ${imageSrc.substring(0, 50)}...`}
+              Image not available: {image.substring(0, 100)}...
             </span>
           </div>
         )}
@@ -94,7 +77,7 @@ export default function ProjectCard({
 ProjectCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  image: PropTypes.string,
   imageAlt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   href: PropTypes.string,

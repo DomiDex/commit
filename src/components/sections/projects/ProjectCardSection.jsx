@@ -1,6 +1,10 @@
 import ProjectCard from '../../ui/common/ProjectCard';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import projectFive from '../../../assets/images/project/project-small-two@2x.webp';
+import projectSix from '../../../assets/images/project/project-small-three@2x.webp';
+import projectFourAlt from '../../../assets/images/project/project-small-four@2x.webp';
+import projectFour from '../../../assets/images/project/project-small-one@2x.webp';
 
 export default function ProjectCardSection() {
   const projects = [
@@ -8,7 +12,7 @@ export default function ProjectCardSection() {
       title: 'E-Commerce Platform',
       href: '/projects/single-project',
       description: 'A modern e-commerce solution built with React and Node.js',
-      image: '/images/project/project-small-Four@2x.webp',
+      image: projectFour,
       imageAlt: 'E-commerce project screenshot',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
@@ -16,7 +20,7 @@ export default function ProjectCardSection() {
       title: 'Portfolio Website',
       href: '/projects/single-project',
       description: 'A responsive portfolio website showcasing creative work',
-      image: '/images/project/project-small-one@2x.webp',
+      image: projectFive,
       imageAlt: 'Portfolio project screenshot',
       tags: ['React', 'Tailwind', 'Vite'],
     },
@@ -24,7 +28,7 @@ export default function ProjectCardSection() {
       title: 'Task Management App',
       href: '/projects/single-project',
       description: 'A collaborative task management application',
-      image: '/images/project/project-small-two@2x.webp',
+      image: projectSix,
       imageAlt: 'Task management project screenshot',
       tags: ['React', 'Redux', 'Firebase'],
     },
@@ -33,7 +37,7 @@ export default function ProjectCardSection() {
       href: '/projects/single-project',
       description:
         'A comprehensive analytics dashboard for social media management',
-      image: '/images/project/project-small-three@2x.webp',
+      image: projectFourAlt,
       imageAlt: 'Dashboard project screenshot',
       tags: ['React', 'TypeScript', 'GraphQL'],
     },

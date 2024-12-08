@@ -1,21 +1,22 @@
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
 import TestimonialCard from '../../ui/common/TestimonialCard';
-import { StarIcon } from '@heroicons/react/20/solid';
+import profileImage from '../../../assets/images/testimonial/test-profile.webp';
+import profileImage01 from '../../../assets/images/testimonial/testi-profile-01.webp';
 
 export default function TestimonialSection() {
   const testimonials = [
     {
       quote:
         'Working with this developer was an absolute pleasure. Their technical expertise and attention to detail resulted in a product that exceeded our expectations.',
-      profileImage: '/images/testimonial/test-profile.webp',
+      profileImage: profileImage,
       authorName: 'Jane Smith',
       authorTitle: 'CTO, Tech Corp',
     },
     {
       quote:
         'Exceptional problem-solving skills and a great communicator. Delivered our project on time and with outstanding quality. Highly recommended!',
-      profileImage: '/images/testimonial/testi-profile-01.webp',
+      profileImage: profileImage01,
       authorName: 'John Doe',
       authorTitle: 'Founder, Digital Solutions',
     },
