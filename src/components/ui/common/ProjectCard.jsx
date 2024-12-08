@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ProjectTag from './ProjectTag';
 import { useTheme } from '../../../context/ThemeContext';
-import defaultProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
+import { useState, useEffect } from 'react';
 
 /**
  * A card component for displaying project information
@@ -18,24 +18,59 @@ import defaultProjectImage from '../../../assets/images/project/main-project-one
 export default function ProjectCard({
   title = '',
   description = '',
-  image = defaultProjectImage,
+  image = '',
   imageAlt = '',
   tags = [],
   href = '/projects/single-project',
 }) {
   const { theme } = useTheme();
+  const [imageError, setImageError] = useState(false);
+  const [imageSrc, setImageSrc] = useState('');
+
+  useEffect(() => {
+    // Handle both import.meta.url assets and regular URLs
+    const loadImage = async () => {
+      try {
+        if (typeof image === 'string') {
+          setImageSrc(image);
+        } else if (image?.default) {
+          setImageSrc(image.default);
+        }
+        console.log('Setting image src to:', imageSrc);
+      } catch (error) {
+        console.error('Error loading image:', error);
+        setImageError(true);
+      }
+    };
+
+    loadImage();
+  }, [image]);
 
   return (
     <a
       href={href}
       className={`h-full w-full md:w-10/12 mx-auto flex flex-col rounded-2xl overflow-hidden relative group hover:shadow-xl`}
     >
-      <div className='relative pt-[56.25%] overflow-hidden'>
-        <img
-          className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
-          src={image}
-          alt={imageAlt}
-        />
+      <div className='relative pt-[56.25%] overflow-hidden bg-gray-100'>
+        {!imageError && imageSrc ? (
+          <img
+            className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
+            src={imageSrc}
+            alt={imageAlt}
+            onError={(e) => {
+              console.error('Image failed to load:', e.target.src);
+              setImageError(true);
+            }}
+            loading='lazy'
+          />
+        ) : (
+          <div className='absolute inset-0 flex items-center justify-center bg-gray-200'>
+            <span className='text-gray-400'>
+              Image not available
+              {imageSrc && `: ${imageSrc.substring(0, 50)}...`}
+            </span>
+          </div>
+        )}
       </div>
       <div
         className={`flex-1 flex flex-col justify-between ${theme.lightBg} p-4`}
@@ -59,7 +94,7 @@ export default function ProjectCard({
 ProjectCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   imageAlt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   href: PropTypes.string,

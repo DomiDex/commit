@@ -1,6 +1,25 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import { useState } from 'react';
+
+// Import all images
+const images = {
+  projectOne: new URL(
+    '../../../assets/images/project/main-project-one@2x.webp',
+    import.meta.url
+  ).href,
+  projectTwo: new URL(
+    '../../../assets/images/project/main-project-two@2x.webp',
+    import.meta.url
+  ).href,
+  projectThree: new URL(
+    '../../../assets/images/project/main-project-three@2x.webp',
+    import.meta.url
+  ).href,
+};
+
+console.log('Image URLs:', images);
 
 export default function ProjectSingleDescription({
   title = 'Innovative Web Solution',
@@ -10,22 +29,24 @@ export default function ProjectSingleDescription({
     back end, we ensured a seamless user experience.`,
   titleClassName = 'text-2xl md:text-4xl font-bold text-center',
   descriptionClassName = '',
-  images = [
+  imagesList = [
     {
-      url: 'src/assets/images/project/project-one@2x.webp',
+      url: images.projectOne,
       alt: 'Project screenshot 1',
     },
     {
-      url: 'src/assets/images/project/project-two@2x.webp',
+      url: images.projectTwo,
       alt: 'Project screenshot 2',
     },
     {
-      url: 'src/assets/images/project/project-three@2x.webp',
+      url: images.projectThree,
       alt: 'Project screenshot 3',
     },
   ],
   imageClassName = 'w-full h-auto rounded-lg shadow-lg',
 }) {
+  const [imageErrors, setImageErrors] = useState({});
+
   const formattedDescription = description
     .split('\n\n')
     .map((paragraph, index) => (
@@ -34,6 +55,14 @@ export default function ProjectSingleDescription({
         {index < description.split('\n\n').length - 1 && <br />}
       </p>
     ));
+
+  const handleImageError = (index) => {
+    console.error('Image failed to load:', imagesList[index].url);
+    setImageErrors((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
+  };
 
   return (
     <Section className='relative'>
@@ -46,14 +75,25 @@ export default function ProjectSingleDescription({
             </div>
           </div>
           <div className='w-full md:w-7/12 flex flex-col space-y-8'>
-            {images.map((image, index) => (
-              <img
+            {imagesList.map((image, index) => (
+              <div
                 key={index}
-                src={image.url}
-                alt={image.alt}
-                className={imageClassName}
-                loading='lazy'
-              />
+                className='relative bg-gray-100 rounded-lg overflow-hidden'
+              >
+                {!imageErrors[index] ? (
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    className={imageClassName}
+                    loading='lazy'
+                    onError={() => handleImageError(index)}
+                  />
+                ) : (
+                  <div className='absolute inset-0 flex items-center justify-center bg-gray-200'>
+                    <span className='text-gray-400'>Image not available</span>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -62,12 +102,13 @@ export default function ProjectSingleDescription({
   );
 }
 
+// Update PropTypes
 ProjectSingleDescription.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   titleClassName: PropTypes.string,
   descriptionClassName: PropTypes.string,
-  images: PropTypes.arrayOf(
+  imagesList: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
@@ -76,6 +117,7 @@ ProjectSingleDescription.propTypes = {
   imageClassName: PropTypes.string,
 };
 
+// Update defaultProps
 ProjectSingleDescription.defaultProps = {
   title: 'Innovative Web Solution',
   description: `This project involved creating a dynamic e-commerce platform
@@ -90,17 +132,17 @@ ProjectSingleDescription.defaultProps = {
     `,
   titleClassName: 'text-2xl font-semibold',
   descriptionClassName: '',
-  images: [
+  imagesList: [
     {
-      url: 'src/assets/images/project/project-one@2x.webp',
+      url: images.projectOne,
       alt: 'Project screenshot 1',
     },
     {
-      url: 'src/assets/images/project/project-two@2x.webp',
+      url: images.projectTwo,
       alt: 'Project screenshot 2',
     },
     {
-      url: 'src/assets/images/project/project-three@2x.webp',
+      url: images.projectThree,
       alt: 'Project screenshot 3',
     },
   ],

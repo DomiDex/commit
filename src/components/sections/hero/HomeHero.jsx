@@ -1,7 +1,6 @@
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
 import MainButton from '../../ui/button/MainButton';
-import HeroImage from '../../../assets/images/home/home-hero@2x.webp';
 
 export default function HomeHero() {
   return (
@@ -25,7 +24,7 @@ export default function HomeHero() {
           </div>
           <img
             className='w-full md:w-6/12 rounded-tl-xl rounded-bl-xl'
-            src={HeroImage}
+            src='/images/home/home-hero@2x.webp'
             alt='Hero Image'
           />
         </div>
