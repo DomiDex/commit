@@ -1,6 +1,6 @@
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
-import logo from '../../assets/svg/brand/commit-logo.svg';
+import CommitLogo from '../ui/common/CommitLogo';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
       <Container>
         <div className='flex flex-col items-center justify-center space-y-12'>
           <div className='flex flex-col items-center justify-center space-y-6'>
-            <img className='w-52 h-auto' src={logo} alt='Logo' />
+            <CommitLogo className='w-52 h-auto' />
             <div className='flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-12'>
               <a
                 className='text-lg font-semibold hover:text-amber-500 transition-colors duration-300'

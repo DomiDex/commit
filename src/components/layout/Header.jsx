@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import logo from '../../assets/svg/brand/commit-logo.svg';
 import Section from '../ui/section/Section';
 import Container from '../ui/container/Container';
 import MainButton from '../ui/button/MainButton';
 import DropdownColor from '../ui/dropdown/DropdownColor';
 import { useTheme } from '../../context/ThemeContext';
+import CommitLogo from '../ui/common/CommitLogo';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function Header() {
         <Container className='bg-transparent'>
           <div className='flex items-center justify-between'>
             <a href='/'>
-              <img className='w-28 h-auto' src={logo} alt='Logo' />
+              <CommitLogo />
             </a>
 
             {/* Mobile Menu Button */}
