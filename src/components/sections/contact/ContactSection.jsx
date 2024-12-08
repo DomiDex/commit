@@ -2,20 +2,18 @@ import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
 import ContactForm from './ContactForm';
 import ContactButton from '../../ui/button/ContactButton';
-import phoneIcon from '../../../assets/svg/contact/phone.svg';
-import emailIcon from '../../../assets/svg/contact/email.svg';
 import Address from '../../ui/common/Address';
 
 export default function ContactSection() {
   const contactButtons = [
     {
       href: 'mailto:contact@example.com',
-      icon: emailIcon,
+      iconType: 'email',
       text: 'contact@example.com',
     },
     {
       href: 'tel:+1234567890',
-      icon: phoneIcon,
+      iconType: 'phone',
       text: '+1234567890',
     },
   ];
@@ -35,7 +33,7 @@ export default function ContactSection() {
                 <ContactButton
                   key={index}
                   href={button.href}
-                  icon={button.icon}
+                  iconType={button.iconType}
                   text={button.text}
                 />
               ))}

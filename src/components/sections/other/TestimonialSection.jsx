@@ -1,25 +1,21 @@
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
 import TestimonialCard from '../../ui/common/TestimonialCard';
-import testimonialStar from '../../../assets/svg/testimonial/Stars.svg';
-import testimonialImage from '../../../assets/images/testimonial/test-profile.webp';
-import testimonialImage2 from '../../../assets/images/testimonial/testi-profile-01.webp';
+import { StarIcon } from '@heroicons/react/20/solid';
 
 export default function TestimonialSection() {
   const testimonials = [
     {
-      starIcon: 'src/assets/svg/Testimonial/Stars.svg',
       quote:
         'Working with this developer was an absolute pleasure. Their technical expertise and attention to detail resulted in a product that exceeded our expectations.',
-      profileImage: 'src/assets/images/testimonial/test-profile.webp',
+      profileImage: '/images/testimonial/test-profile.webp',
       authorName: 'Jane Smith',
       authorTitle: 'CTO, Tech Corp',
     },
     {
-      starIcon: 'src/assets/svg/Testimonial/Stars.svg',
       quote:
         'Exceptional problem-solving skills and a great communicator. Delivered our project on time and with outstanding quality. Highly recommended!',
-      profileImage: 'src/assets/images/testimonial/testi-profile-01.webp',
+      profileImage: '/images/testimonial/testi-profile-01.webp',
       authorName: 'John Doe',
       authorTitle: 'Founder, Digital Solutions',
     },
@@ -41,12 +37,12 @@ export default function TestimonialSection() {
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
-                starIcon={testimonial.starIcon}
+                stars={5}
                 quote={testimonial.quote}
                 profileImage={testimonial.profileImage}
                 authorName={testimonial.authorName}
                 authorTitle={testimonial.authorTitle}
-                className=' p-6 rounded-lg'
+                className='p-6 rounded-lg'
               />
             ))}
           </div>
