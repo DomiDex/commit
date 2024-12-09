@@ -11,6 +11,7 @@ import SideSection from '../components/sections/other/SideSection';
 import projectOneImg from '../assets/images/project/main-project-one@2x.webp';
 import projectTwoImg from '../assets/images/project/main-project-two@2x.webp';
 import projectThreeImg from '../assets/images/project/main-project-three@2x.webp';
+import imageAbout from '../assets/images/about/main-about-one@2x.webp';
 
 export default function Home() {
   const projects = [
@@ -54,7 +55,7 @@ export default function Home() {
       <SideSection
         title='Who am I?'
         description='Your description here'
-        image='/assets/images/about/main-about-one@2x.webp'
+        image={imageAbout}
         imageAlt='home about image'
         titleAs='h1'
       />

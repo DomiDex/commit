@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import ProjectTag from './ProjectTag';
 import { useTheme } from '../../../context/ThemeContext';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Image from '../imageComponents/Image';
 
 /**
  * A card component for displaying project information
@@ -26,10 +27,6 @@ export default function ProjectCard({
   const { theme } = useTheme();
   const [imageError, setImageError] = useState(false);
 
-  useEffect(() => {
-    console.log('Image prop received:', image);
-  }, [image]);
-
   return (
     <a
       href={href}
@@ -37,15 +34,15 @@ export default function ProjectCard({
     >
       <div className='relative pt-[56.25%] overflow-hidden bg-gray-100'>
         {!imageError ? (
-          <img
-            className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
+          <Image
             src={image}
             alt={imageAlt}
+            className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
+            loading='lazy'
             onError={(e) => {
               console.error('Image failed to load:', e);
               setImageError(true);
             }}
-            loading='lazy'
           />
         ) : (
           <div className='absolute inset-0 flex items-center justify-center bg-gray-200'>
