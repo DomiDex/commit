@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import mainAboutOne from '../../../assets/images/about/main-about-one@2x.webp';
+import mainAboutTwo from '../../../assets/images/about/main-about-two@2x.webp';
+import { useState } from 'react';
 
 /**
  * A flexible side section component with customizable content
@@ -8,18 +11,27 @@ import Container from '../../ui/container/Container';
  * @param {Object} props
  * @param {string} props.title - The title text
  * @param {string} props.description - The description text
+ * @param {string} props.image - The image source URL
  * @param {string} props.imageAlt - The image alt text
  * @param {('h1'|'h2'|'h3')} [props.titleAs='h2'] - The heading level to use
- * @param {string} [props.titleClassName='text-4xl font-semibold'] - Custom title classes
- * @param {string} [props.descriptionClassName='text-lg'] - Custom description classes
- * @param {string} [props.imageClassName='rounded-lg shadow-lg aspect-auto'] - Custom image classes
  */
 export default function SideSection({
   title,
   description,
+  image,
   imageAlt,
   titleAs: TitleComponent = 'h2',
 }) {
+  const [imageError, setImageError] = useState(false);
+
+  // Map public paths to imported images
+  const imageMap = {
+    '/images/about/main-about-one@2x.webp': mainAboutOne,
+    '/images/about/main-about-two@2x.webp': mainAboutTwo,
+  };
+
+  const resolvedImage = imageMap[image] || image;
+
   return (
     <Section padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'>
       <Container>
@@ -31,12 +43,25 @@ export default function SideSection({
             <p className='text-base md:text-lg'>{description}</p>
           </div>
           <div className='relative aspect-[4/3] w-full'>
-            <img
-              src='src/assets/images/project/side-section@2x.webp'
-              alt={imageAlt}
-              className='object-cover rounded-lg w-full h-full'
-              loading='lazy'
-            />
+            {!imageError ? (
+              <img
+                src={resolvedImage}
+                alt={imageAlt}
+                className='object-cover rounded-lg w-full h-full'
+                loading='lazy'
+                onError={() => {
+                  console.error('Image failed to load:', resolvedImage);
+                  setImageError(true);
+                }}
+              />
+            ) : (
+              <div className='absolute inset-0 flex items-center justify-center bg-gray-200 rounded-lg'>
+                <span className='text-gray-400'>
+                  Image not available
+                  {resolvedImage && `: ${resolvedImage.substring(0, 50)}...`}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </Container>
@@ -47,6 +72,7 @@ export default function SideSection({
 SideSection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
   titleAs: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };

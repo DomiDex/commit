@@ -1,15 +1,12 @@
 import SideSectionReverse from '../components/sections/other/SideSectionReverse';
-import HomeSideImage from '../assets/images/home/home-side-image@2x.webp';
 import Section from '../components/ui/section/Section';
 import Container from '../components/ui/container/Container';
 import ProjectCard from '../components/ui/common/ProjectCard';
-import MainProjectImage from '../assets/images/project/main-project-one@2x.webp';
-import MainProjectTwoImage from '../assets/images/project/main-project-two@2x.webp';
-import MainProjectThreeImage from '../assets/images/project/main-project-three@2x.webp';
 import SkillSection from '../components/sections/other/SkillSection';
 import TestimonialSection from '../components/sections/other/TestimonialSection';
 import Cta from '../components/layout/Cta';
 import HomeHero from '../components/sections/hero/HomeHero';
+import SideSection from '../components/sections/other/SideSection';
 
 export default function Home() {
   const projects = [
@@ -17,7 +14,7 @@ export default function Home() {
       title: 'E-Commerce Platform',
       href: '/projects/single-project',
       description: 'A modern e-commerce solution built with React and Node.js',
-      image: MainProjectImage,
+      image: '/images/project/main-project-one@2x.webp',
       imageAlt: 'E-commerce project screenshot',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
@@ -25,7 +22,7 @@ export default function Home() {
       title: 'Portfolio Website',
       href: '/projects/single-project',
       description: 'A responsive portfolio website showcasing creative work',
-      image: MainProjectTwoImage,
+      image: '/images/project/main-project-two@2x.webp',
       imageAlt: 'Portfolio project screenshot',
       tags: ['React', 'Tailwind', 'Vite'],
     },
@@ -33,7 +30,7 @@ export default function Home() {
       title: 'Task Management App',
       href: '/projects/single-project',
       description: 'A collaborative task management application',
-      image: MainProjectThreeImage,
+      image: '/images/project/main-project-three@2x.webp',
       imageAlt: 'Task management project screenshot',
       tags: ['React', 'Redux', 'Firebase'],
     },
@@ -42,10 +39,12 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-      <SideSectionReverse
-        image={HomeSideImage}
-        title='What I do?'
-        description="This project involved creating a dynamic e-commerce platform tailored to the client's specifications. Utilizing cutting-edge technologies such as React for the front end and Node.js for the back end, we ensured a seamless user experience. The client required a robust system that could handle high traffic while maintaining fast load times and an intuitive interface."
+      <SideSection
+        title='Who am I?'
+        description='Your description here'
+        image='/images/about/main-about-one@2x.webp'
+        imageAlt='Description of image'
+        titleAs='h1'
       />
       <Section>
         <Container>

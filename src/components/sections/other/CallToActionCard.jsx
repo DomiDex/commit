@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import MainButton from '../../ui/button/MainButton';
-import CtaImage from '../../../assets/images/cta/cta.webp';
+import ctaBackground from '../../../assets/images/cta/cta.webp';
 
 /**
  * A call-to-action card component with background image and customizable content
@@ -18,7 +18,7 @@ export default function CallToActionCard({
   description = `Ready to transform your ideas into reality? Get in touch and let's start creating your next successful project.`,
   buttonText = "Let's Talk",
   buttonHref = '/contact',
-  backgroundImage = CtaImage,
+  backgroundImage = ctaBackground,
   className = '',
 }) {
   return (
@@ -38,7 +38,7 @@ export default function CallToActionCard({
         <MainButton
           text={buttonText}
           href={buttonHref}
-          className='mt-4 text-lg  px-8 py-1'
+          className='mt-4 text-lg px-8 py-1'
         />
       </div>
     </div>

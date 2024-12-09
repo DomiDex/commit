@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ProjectTag from './ProjectTag';
 import { useTheme } from '../../../context/ThemeContext';
-import defaultProjectImage from '../../../assets/images/project/main-project-one@2x.webp';
+import { useState, useEffect } from 'react';
 
 /**
  * A card component for displaying project information
@@ -18,24 +18,42 @@ import defaultProjectImage from '../../../assets/images/project/main-project-one
 export default function ProjectCard({
   title = '',
   description = '',
-  image = defaultProjectImage,
+  image = '',
   imageAlt = '',
   tags = [],
   href = '/projects/single-project',
 }) {
   const { theme } = useTheme();
+  const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    console.log('Image prop received:', image);
+  }, [image]);
 
   return (
     <a
       href={href}
       className={`h-full w-full md:w-10/12 mx-auto flex flex-col rounded-2xl overflow-hidden relative group hover:shadow-xl`}
     >
-      <div className='relative pt-[56.25%] overflow-hidden'>
-        <img
-          className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
-          src={image}
-          alt={imageAlt}
-        />
+      <div className='relative pt-[56.25%] overflow-hidden bg-gray-100'>
+        {!imageError ? (
+          <img
+            className='absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-all duration-300'
+            src={image}
+            alt={imageAlt}
+            onError={(e) => {
+              console.error('Image failed to load:', e);
+              setImageError(true);
+            }}
+            loading='lazy'
+          />
+        ) : (
+          <div className='absolute inset-0 flex items-center justify-center bg-gray-200'>
+            <span className='text-gray-400'>
+              Image not available: {image.substring(0, 100)}...
+            </span>
+          </div>
+        )}
       </div>
       <div
         className={`flex-1 flex flex-col justify-between ${theme.lightBg} p-4`}
