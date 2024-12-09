@@ -1,24 +1,25 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
+import Image from '../../ui/imageComponents/Image';
 import { useState } from 'react';
 
 // Import images statically
 import projectOneImg from '../../../assets/images/project/project-one@2x.webp';
 import projectTwoImg from '../../../assets/images/project/project-two@2x.webp';
-import projectThreeImg from '../../../assets/images/project/project-three@2x.webp';
+import projectThreeImg from '../../../assets/images/project/Project-three@2x.webp';
 
 const projectImages = [
   {
-    url: projectOneImg,
+    src: projectOneImg,
     alt: 'Project screenshot 1',
   },
   {
-    url: projectTwoImg,
+    src: projectTwoImg,
     alt: 'Project screenshot 2',
   },
   {
-    url: projectThreeImg,
+    src: projectThreeImg,
     alt: 'Project screenshot 3',
   },
 ];
@@ -49,7 +50,7 @@ export default function ProjectSingleDescription({
       ...prev,
       [index]: true,
     }));
-    console.error('Image failed to load:', projectImages[index]?.url);
+    console.error('Image failed to load:', projectImages[index]?.src);
   };
 
   return (
@@ -69,8 +70,8 @@ export default function ProjectSingleDescription({
                 className='relative bg-gray-100 rounded-lg overflow-hidden'
               >
                 {!imageErrors[index] ? (
-                  <img
-                    src={image.url}
+                  <Image
+                    src={image.src}
                     alt={image.alt}
                     className={imageClassName}
                     loading='lazy'
