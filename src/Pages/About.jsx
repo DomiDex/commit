@@ -8,7 +8,7 @@ export default function About() {
       <SideSection
         title='Who am I?'
         description={`This project involved creating a dynamic e-commerce platform tailored to the client's specifications.`}
-        image='/images/about/main-about-one@2x.webp'
+        image='/images/About/main-about-one@2x.webp'
         imageAlt='Vision illustration'
         titleAs='h1'
       />
@@ -19,7 +19,7 @@ export default function About() {
       <SideSectionReverse
         title='What I do?'
         description={`This project involved creating a dynamic e-commerce platform tailored to the client's specifications.`}
-        image='/images/about/main-about-two@2x.webp'
+        image='/images/About/main-about-two@2x.webp'
         imageAlt='Vision illustration'
         titleAs='h2'
       />

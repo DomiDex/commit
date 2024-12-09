@@ -5,13 +5,13 @@ import SkillSection from '../components/sections/other/SkillSection';
 import TestimonialSection from '../components/sections/other/TestimonialSection';
 import Cta from '../components/layout/Cta';
 import HomeHero from '../components/sections/hero/HomeHero';
-import SideSection from '../components/sections/other/SideSection';
+import SideSectionReverse from '../components/sections/other/SideSectionReverse';
 
 // Import images
 import projectOneImg from '../assets/images/project/main-project-one@2x.webp';
 import projectTwoImg from '../assets/images/project/main-project-two@2x.webp';
 import projectThreeImg from '../assets/images/project/main-project-three@2x.webp';
-// import imageAbout from '../assets/images/about/main-about-one@2x.webp';
+import mainAboutOne from '../assets/images/About/main-about-one@2x.webp';
 
 export default function Home() {
   const projects = [
@@ -52,10 +52,10 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-      <SideSection
+      <SideSectionReverse
         title='Who am I?'
         description='Your description here'
-        image={projectOneImg}
+        image='/images/About/main-about-one@2x.webp'
         imageAlt='home about image'
         titleAs='h1'
       />

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import mainAboutOne from '../../../assets/images/about/main-about-one@2x.webp';
-import mainAboutTwo from '../../../assets/images/about/main-about-two@2x.webp';
+import Image from '../../ui/imageComponents/Image';
+import mainAboutOne from '../../../assets/images/About/main-about-one@2x.webp';
+import mainAboutTwo from '../../../assets/images/About/main-about-two@2x.webp';
 import { useState } from 'react';
 
 /**
@@ -26,8 +27,8 @@ export default function SideSection({
 
   // Map public paths to imported images
   const imageMap = {
-    '/images/about/main-about-one@2x.webp': mainAboutOne,
-    '/images/about/main-about-two@2x.webp': mainAboutTwo,
+    '/images/About/main-about-one@2x.webp': mainAboutOne,
+    '/images/About/main-about-two@2x.webp': mainAboutTwo,
   };
 
   const resolvedImage = imageMap[image] || image;
@@ -44,7 +45,7 @@ export default function SideSection({
           </div>
           <div className='relative aspect-[4/3] w-full'>
             {!imageError ? (
-              <img
+              <Image
                 src={resolvedImage}
                 alt={imageAlt}
                 className='object-cover rounded-lg w-full h-full'

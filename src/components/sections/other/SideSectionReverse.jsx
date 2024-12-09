@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import mainAboutOne from '../../../assets/images/about/main-about-one@2x.webp';
-import mainAboutTwo from '../../../assets/images/about/main-about-two@2x.webp';
+import Image from '../../ui/imageComponents/Image';
+import mainAboutOne from '../../../assets/images/About/main-about-one@2x.webp';
+import mainAboutTwo from '../../../assets/images/About/main-about-two@2x.webp';
 import { useState } from 'react';
 
 /**
@@ -26,8 +27,8 @@ export default function SideSectionReverse({
 
   // Map public paths to imported images
   const imageMap = {
-    '/images/about/main-about-one@2x.webp': mainAboutOne,
-    '/images/about/main-about-two@2x.webp': mainAboutTwo,
+    '/images/About/main-about-one@2x.webp': mainAboutOne,
+    '/images/About/main-about-two@2x.webp': mainAboutTwo,
   };
 
   const resolvedImage = imageMap[image] || image;
@@ -36,9 +37,9 @@ export default function SideSectionReverse({
     <Section padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'>
       <Container>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center'>
-          <div className='relative aspect-[4/3] w-full md:order-2'>
+          <div className='relative aspect-[4/3] w-full md:order-1'>
             {!imageError ? (
-              <img
+              <Image
                 src={resolvedImage}
                 alt={imageAlt}
                 className='object-cover rounded-lg w-full h-full'
@@ -57,7 +58,7 @@ export default function SideSectionReverse({
               </div>
             )}
           </div>
-          <div className='space-y-4 md:space-y-8 md:order-1'>
+          <div className='space-y-4 md:space-y-8 md:order-2'>
             <TitleComponent className='text-2xl md:text-4xl font-bold'>
               {title}
             </TitleComponent>
