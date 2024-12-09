@@ -1,47 +1,49 @@
+import { useState, useEffect } from 'react';
 import ProjectCard from '../../ui/common/ProjectCard';
 import Section from '../../ui/section/Section';
 import Container from '../../ui/container/Container';
-import projectFive from '../../../assets/images/project/project-small-two@2x.webp';
-import projectSix from '../../../assets/images/project/project-small-three@2x.webp';
-import projectFourAlt from '../../../assets/images/project/project-small-four@2x.webp';
-import projectFour from '../../../assets/images/project/project-small-one@2x.webp';
 
 export default function ProjectCardSection() {
-  const projects = [
-    {
-      title: 'E-Commerce Platform',
-      href: '/projects/single-project',
-      description: 'A modern e-commerce solution built with React and Node.js',
-      image: projectFour,
-      imageAlt: 'E-commerce project screenshot',
-      tags: ['React', 'Node.js', 'MongoDB'],
-    },
-    {
-      title: 'Portfolio Website',
-      href: '/projects/single-project',
-      description: 'A responsive portfolio website showcasing creative work',
-      image: projectFive,
-      imageAlt: 'Portfolio project screenshot',
-      tags: ['React', 'Tailwind', 'Vite'],
-    },
-    {
-      title: 'Task Management App',
-      href: '/projects/single-project',
-      description: 'A collaborative task management application',
-      image: projectSix,
-      imageAlt: 'Task management project screenshot',
-      tags: ['React', 'Redux', 'Firebase'],
-    },
-    {
-      title: 'Social Media Dashboard',
-      href: '/projects/single-project',
-      description:
-        'A comprehensive analytics dashboard for social media management',
-      image: projectFourAlt,
-      imageAlt: 'Dashboard project screenshot',
-      tags: ['React', 'TypeScript', 'GraphQL'],
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // Dynamic imports for images
+    const loadImages = async () => {
+      try {
+        const projectOne = await import(
+          '../../../assets/images/project/project-one@2x.webp'
+        );
+        const projectTwo = await import(
+          '../../../assets/images/project/project-two@2x.webp'
+        );
+        const projectThree = await import(
+          '../../../assets/images/project/project-three@2x.webp'
+        );
+
+        setImages([
+          {
+            url: projectOne.default,
+            alt: 'Project screenshot 1',
+          },
+          {
+            url: projectTwo.default,
+            alt: 'Project screenshot 2',
+          },
+          {
+            url: projectThree.default,
+            alt: 'Project screenshot 3',
+          },
+        ]);
+
+        console.log('Loaded images:', { projectOne, projectTwo, projectThree });
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+
+    loadImages();
+  }, []);
 
   return (
     <Section padding='px-4 py-8 sm:px-8 md:px-16 md:py-24'>
