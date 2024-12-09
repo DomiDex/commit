@@ -55,7 +55,7 @@ export default function Home() {
       <SideSection
         title='Who am I?'
         description='Your description here'
-        image={imageAbout}
+        image={projectOneImg}
         imageAlt='home about image'
         titleAs='h1'
       />
