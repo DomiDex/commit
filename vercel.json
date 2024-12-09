@@ -16,9 +16,5 @@
       "NODE_ENV": "production"
     }
   },
-  "public": true,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  "public": true
 }
