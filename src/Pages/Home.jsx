@@ -1,4 +1,3 @@
-import SideSectionReverse from '../components/sections/other/SideSectionReverse';
 import Section from '../components/ui/section/Section';
 import Container from '../components/ui/container/Container';
 import ProjectCard from '../components/ui/common/ProjectCard';
@@ -8,13 +7,19 @@ import Cta from '../components/layout/Cta';
 import HomeHero from '../components/sections/hero/HomeHero';
 import SideSection from '../components/sections/other/SideSection';
 
+// Import images
+import projectOneImg from '../assets/images/project/main-project-one@2x.webp';
+import projectTwoImg from '../assets/images/project/main-project-two@2x.webp';
+import projectThreeImg from '../assets/images/project/main-project-three@2x.webp';
+import aboutImg from '../assets/images/about/main-about-one@2x.webp';
+
 export default function Home() {
   const projects = [
     {
       title: 'E-Commerce Platform',
       href: '/projects/single-project',
       description: 'A modern e-commerce solution built with React and Node.js',
-      image: '/images/project/main-project-one@2x.webp',
+      image: projectOneImg,
       imageAlt: 'E-commerce project screenshot',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
@@ -22,7 +27,7 @@ export default function Home() {
       title: 'Portfolio Website',
       href: '/projects/single-project',
       description: 'A responsive portfolio website showcasing creative work',
-      image: '/images/project/main-project-two@2x.webp',
+      image: projectTwoImg,
       imageAlt: 'Portfolio project screenshot',
       tags: ['React', 'Tailwind', 'Vite'],
     },
@@ -30,7 +35,15 @@ export default function Home() {
       title: 'Task Management App',
       href: '/projects/single-project',
       description: 'A collaborative task management application',
-      image: '/images/project/main-project-three@2x.webp',
+      image: projectThreeImg,
+      imageAlt: 'Task management project screenshot',
+      tags: ['React', 'Redux', 'Firebase'],
+    },
+    {
+      title: 'Productivity App',
+      href: '/projects/single-project',
+      description: 'A collaborative productivity application',
+      image: projectThreeImg,
       imageAlt: 'Task management project screenshot',
       tags: ['React', 'Redux', 'Firebase'],
     },
@@ -42,7 +55,7 @@ export default function Home() {
       <SideSection
         title='Who am I?'
         description='Your description here'
-        image='/images/about/main-about-one@2x.webp'
+        image={aboutImg}
         imageAlt='Description of image'
         titleAs='h1'
       />
@@ -66,6 +79,7 @@ export default function Home() {
                 image={project.image}
                 imageAlt={project.imageAlt}
                 tags={project.tags}
+                href={project.href}
               />
             ))}
           </div>

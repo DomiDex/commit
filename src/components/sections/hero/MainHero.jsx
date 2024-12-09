@@ -26,11 +26,3 @@ MainHero.propTypes = {
   titleClassName: PropTypes.string,
   descriptionClassName: PropTypes.string,
 };
-
-MainHero.defaultProps = {
-  title: 'Your Code Partner',
-  description:
-    'Passionate full-stack developer dedicated to crafting seamless user experiences and robust applications.',
-  titleClassName: 'text-4xl font-semibold',
-  descriptionClassName: 'text-lg',
-};
